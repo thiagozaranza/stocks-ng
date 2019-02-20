@@ -13,8 +13,8 @@ RUN apt-get update -y > /dev/null \
 RUN set -ex \
 	&& cd /usr/share/nginx/html/${APP_NAME}/ \
 	&& npm install \
-    && npm audit fix \
-	&& ng build --prod --no-aot --base-href /${APP_NAME}/ \
+        && npm audit fix --force\
+	&& ng build --base-href /${APP_NAME}/ \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/share/nginx/html/${APP_NAME}/
