@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <mat-toolbar-row>
+    
+    <a mat-button href="/" class="menu">
+      <mat-icon>assessment</mat-icon>Stocks Analytics
+    </a>
+
+    <button mat-button [matMenuTriggerFor]="menuprocessos">Tabelas</button>
+    <mat-menu #menuprocessos="matMenu">
+      <a mat-menu-item href="/empresa">Empresas</a>
+      <a mat-menu-item href="/setor">Setor</a>
+      <a mat-menu-item href="/subsetor">Subsetor</a>
+      <a mat-menu-item href="/segmento">Segmento</a>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="menuresponsaveis">Responsáveis</button>
+    <mat-menu #menuresponsaveis="matMenu">
+      <a mat-menu-item href="/responsaveis">Consultar</a>
+      <a mat-menu-item href="/responsaveis/cadastro">Cadastrar</a>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>

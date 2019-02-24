@@ -1,0 +1,28 @@
+mat-toolbar-row {
+    z-index: 1;
+}
+
+mat-form-field {
+    width: 100%;
+    padding: 10px;
+}
+
+form {
+    padding: 20px;
+}
+
+table {
+    width: 100%;    
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+background: #efefef;
+}
