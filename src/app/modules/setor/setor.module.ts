@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SetorIndexComponent } from './setor-index/setor-index.component';
-import { SetorCreateComponent } from './setor-create/setor-create.component';
+
 import {
   MatToolbarModule,
   MatMenuModule,
@@ -19,6 +18,10 @@ import {
   MatSelectModule,
   MatChipsModule
 } from '@angular/material';
+
+import { SetorIndexComponent } from './setor-index/setor-index.component';
+import { SetorCreateComponent } from './setor-create/setor-create.component';
+import { SetorService } from './setor.service';
 
 @NgModule({
   declarations: [SetorIndexComponent, SetorCreateComponent],
@@ -39,6 +42,7 @@ import {
     MatPaginatorModule,
     MatSelectModule,
     MatChipsModule
-  ]
+  ],
+  providers: [SetorService]
 })
 export class SetorModule { }

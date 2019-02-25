@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RootComponent } from './layout/root/root.component';
-import { EmpresaIndexComponent } from './empresa/empresa-index/empresa-index.component';
-import { EmpresaCreateComponent } from './empresa/empresa-create/empresa-create.component';
-import { SetorIndexComponent } from './setor/setor-index/setor-index.component';
-import { SetorCreateComponent } from './setor/setor-create/setor-create.component';
+import { EmpresaIndexComponent } from './modules/empresa/empresa-index/empresa-index.component';
+import { EmpresaCreateComponent } from './modules/empresa/empresa-create/empresa-create.component';
+import { SetorIndexComponent } from './modules/setor/setor-index/setor-index.component';
+import { SetorCreateComponent } from './modules/setor/setor-create/setor-create.component';
 
 const routes: Routes = [
   {

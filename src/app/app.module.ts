@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmpresaModule } from './empresa/empresa.module';
-import { SetorModule } from './setor/setor.module';
-import { SubsetorModule } from './subsetor/subsetor.module';
-import { SegmentoModule } from './segmento/segmento.module';
+import { EmpresaModule } from './modules/empresa/empresa.module';
+import { SetorModule } from './modules/setor/setor.module';
+import { SubsetorModule } from './modules/subsetor/subsetor.module';
+import { SegmentoModule } from './modules/segmento/segmento.module';
 import { LayoutModule } from './layout/layout.module';
+import { HttpClientModule } from '@angular/common/http'; 
+import { GlobalApp } from './shared/global';
 
 
 @NgModule({
@@ -21,9 +23,10 @@ import { LayoutModule } from './layout/layout.module';
     EmpresaModule,
     SetorModule,
     SubsetorModule,
-    SegmentoModule
+    SegmentoModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GlobalApp],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
