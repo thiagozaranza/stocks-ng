@@ -3,6 +3,7 @@ import { GlobalApp } from '../shared/global';
 import { MetaRequest } from '../shared/meta-request';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { isNull } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class BaseService
 
   private callComponent = new Subject<any>();
   public callComponent$ = this.callComponent.asObservable();
-  public meta_request = [];
+  public _limit: number;
+  public _page: number;
 
   constructor(protected http: HttpClient, protected globalApp: GlobalApp) { 
     console.log('BaseService' + this.urn);
@@ -22,13 +24,13 @@ export class BaseService
 
   limit(valor: number)
   {
-    //this.meta_request['limit'] = valor;
+    this._limit = valor;
     return this;
   }
 
   public page(valor: number)
   {
-    //this.meta_request['page'] = valor;
+    this._page = valor;
     return this;
   }
 
@@ -40,12 +42,20 @@ export class BaseService
 
   makeQuery()
   {
-    return '';
+    var query:string = '?';
+
+    if (this._page)
+      query += '&page=' + this._page;
+
+    if (this._limit)
+      query += '&limit=' + this._limit;
+
+    return query;
   }
 
   public index(callback)
   {
-    this.http.get(this.globalApp.base_url + this.urn + '?' + this.makeQuery()).subscribe(callback);
+    this.http.get(this.globalApp.base_url + this.urn + this.makeQuery()).subscribe(callback);
   }
 
 }

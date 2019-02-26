@@ -14,7 +14,7 @@ RUN set -ex \
 	&& cd /usr/share/nginx/html/${APP_NAME}/ \
 	&& npm install \
         && npm audit fix --force\
-	&& ng build --base-href /${APP_NAME}/ \
+	&& ng build --proxy-config proxy.config.js --base-href /${APP_NAME}/ \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/share/nginx/html/${APP_NAME}/

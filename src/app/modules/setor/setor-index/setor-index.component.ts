@@ -1,20 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Setor } from 'src/app/modules/setor/setor';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SetorService } from '../setor.service';
-import { BaseService } from 'src/app/shared/base.service';
-
-const ELEMENT_DATA: Setor[] = [
-  {id: 1, nome: '01/01/2011'},
-  {id: 2, nome: '01/01/2011'},
-  {id: 3, nome: '01/01/2011'},
-  {id: 4, nome: '01/01/2011'},
-  {id: 5, nome: '01/01/2011'},
-  {id: 6, nome: '01/01/2011'},
-  {id: 7, nome: '01/01/2011'},
-  {id: 8, nome: '01/01/2011'},
-  {id: 9, nome: '01/01/2011'},
-  {id: 10, nome: '01/01/2011'},
-];
+import { PageEvent, Sort, MatSort, MatTableDataSource } from '@angular/material';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-setor-index',
@@ -25,24 +12,49 @@ const ELEMENT_DATA: Setor[] = [
 export class SetorIndexComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nome'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource();
+
+  total_pages: number;
+  page_size:number;
 
   constructor(protected service: SetorService) { 
-    
+
   }
+
+  @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
 
-    console.log('SetorIndexComponent ngOnInit()');
+    this.dataSource.sort = this.sort;
+    this.getServerData(null);
 
-    this.service.page(1).index((response) => {
-      this.dataSource = response.list;
+  }
+
+  public getServerData(event?:PageEvent) {
+
+    if (!isNull(event)) {
+      this.service
+        .page(event.pageIndex + 1)
+        .limit(event.pageSize);
+    }
+
+    this.service.index((response) => {
+      this.dataSource.data = response.data.list;
+      this.total_pages = response.data.total_results;
+      this.page_size = response.meta.request.query_params.paginator.limit;
     });
-    //index({});
 
-    //this.service.page(1);
+    return event;
+  }
 
-    //console.log(this.service.index({}));
+  public sortData(sort: Sort) {
+
+    if (!sort.active || sort.direction === '') {
+      console.log(sort.active);
+      console.log(sort.direction);
+      return;
+    }
+    
   }
 
 }
