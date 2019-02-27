@@ -13,6 +13,8 @@ mat-form-field {
 
 .title {
     font-weight: 200;
+    position: absolute; 
+    padding-top: 10px
 }
 
 .fill-space {
@@ -25,4 +27,8 @@ mat-form-field {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.add-button {
+    float: right;
 }

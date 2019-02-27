@@ -3,7 +3,7 @@ import { GlobalApp } from '../shared/global';
 import { MetaRequest } from '../shared/meta-request';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { isNull } from 'util';
+import { isNull, isNumber } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,10 @@ export class BaseService
   public callComponent$ = this.callComponent.asObservable();
   public _limit: number;
   public _page: number;
+  public _filters: object = {};
 
   constructor(protected http: HttpClient, protected globalApp: GlobalApp) { 
-    console.log('BaseService' + this.urn);
+    
   }
 
   limit(valor: number)
@@ -36,7 +37,7 @@ export class BaseService
 
   addFilter(key: string, value: any) 
   {
-    //this.meta_request[]['key] = value;
+    this._filters[key] = value;
     return this;
   }
 
@@ -49,6 +50,13 @@ export class BaseService
 
     if (this._limit)
       query += '&limit=' + this._limit;
+
+    for (const key in this._filters) {
+      if (isNaN(Number(this._filters[key])))
+        query += '&' + key + '-lk=' + this._filters[key];
+      else
+        query += '&id=' + this._filters[key];        
+    }
 
     return query;
   }

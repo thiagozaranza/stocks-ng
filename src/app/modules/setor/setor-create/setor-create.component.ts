@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SetorService } from '../setor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setor-create',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetorCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, protected service: SetorService) { 
+
+  }
 
   ngOnInit() {
+  }
+
+  index()
+  {
+    this.router.navigate(['/setor']);
   }
 
 }
