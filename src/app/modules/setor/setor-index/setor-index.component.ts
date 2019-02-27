@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { Router } from "@angular/router"
 import { isNull } from 'util';
 import { 
@@ -29,11 +29,14 @@ export class SetorIndexComponent implements OnInit {
   }
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild('filterNome') filter_nome:ElementRef;
 
   ngOnInit() 
   {
     this.dataSource.sort = this.sort;
+    this.service.clean();
     this.getServerData(null);
+    this.filter_nome.nativeElement.focus();
   }
 
   create(): void
@@ -41,14 +44,26 @@ export class SetorIndexComponent implements OnInit {
     this.router.navigate(['/setor/create'])
   }
 
-  applyFilter(filterValue: string): void 
+  filterByNome(filterValue: string): void 
   {
     let nome = filterValue.trim().toLowerCase();
 
-    if (nome.length == 0)
-      return;
+    this.service.addFilter('nome', nome);
+  }
 
-    this.service.addFilter('nome', nome).index((response) => {
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      this.applyFilter();
+    } else if (event.which === 27) {
+      console.log('Esc');
+      this.filter_nome.nativeElement.value = '';
+      this.service.cleanFilters();
+    }
+  }
+
+  applyFilter(): void 
+  {
+    this.service.index((response) => {
       this.dataSource.data = response.data.list;
       this.total_pages = response.data.total_results;
       this.page_size = response.meta.request.query_params.paginator.limit;

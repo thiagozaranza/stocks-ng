@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { GlobalApp } from '../shared/global';
-import { MetaRequest } from '../shared/meta-request';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { isNull, isNumber } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -23,25 +21,41 @@ export class BaseService
     
   }
 
-  limit(valor: number)
+  clean(): void{
+    this.cleanPagination();
+    this.cleanFilters();
+  }
+
+  cleanPagination(): void
+  {
+    this._limit = null;
+    this._page = null;
+  }
+
+  cleanFilters(): void
+  {
+    this._filters = {};
+  }
+
+  limit(valor: number): BaseService
   {
     this._limit = valor;
     return this;
   }
 
-  public page(valor: number)
+  public page(valor: number): BaseService
   {
     this._page = valor;
     return this;
   }
 
-  addFilter(key: string, value: any) 
+  addFilter(key: string, value: any) : BaseService
   {
     this._filters[key] = value;
     return this;
   }
 
-  makeQuery()
+  makeQuery(): string
   {
     var query:string = '?';
 
@@ -52,6 +66,10 @@ export class BaseService
       query += '&limit=' + this._limit;
 
     for (const key in this._filters) {
+
+      if (this._filters[key].length == 0)
+        continue;
+
       if (isNaN(Number(this._filters[key])))
         query += '&' + key + '-lk=' + this._filters[key];
       else
@@ -61,7 +79,7 @@ export class BaseService
     return query;
   }
 
-  public index(callback)
+  public index(callback): void
   {
     this.http.get(this.globalApp.base_url + this.urn + this.makeQuery()).subscribe(callback);
   }
