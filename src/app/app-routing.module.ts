@@ -5,6 +5,8 @@ import { EmpresaIndexComponent } from './modules/empresa/empresa-index/empresa-i
 import { EmpresaCreateComponent } from './modules/empresa/empresa-create/empresa-create.component';
 import { SetorIndexComponent } from './modules/setor/setor-index/setor-index.component';
 import { SetorCreateComponent } from './modules/setor/setor-create/setor-create.component';
+import { SetorShowComponent } from './modules/setor/setor-show/setor-show.component';
+import { SetorEditComponent } from './modules/setor/setor-edit/setor-edit.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,13 @@ const routes: Routes = [
         component: EmpresaCreateComponent
       }, {
         path: 'setor',
-        component: SetorIndexComponent
+        component: SetorIndexComponent,        
+      }, {
+        path: 'setor/:id',
+        component: SetorShowComponent,        
+      }, {
+        path: 'setor/:id/edit',
+        component: SetorEditComponent,        
       }, {
         path: 'setor/create',
         component: SetorCreateComponent

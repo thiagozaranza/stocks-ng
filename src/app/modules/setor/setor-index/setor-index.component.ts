@@ -5,10 +5,12 @@ import {
   PageEvent, 
   Sort, 
   MatSort, 
-  MatTableDataSource
+  MatTableDataSource,
+  MatDialog
 } from '@angular/material';
 
 import { SetorService } from '../setor.service';
+import { SetorDeleteConfirmComponent } from '../setor-delete-confirm/setor-delete-confirm.component';
 
 @Component({
   selector: 'app-setor-index',
@@ -18,13 +20,13 @@ import { SetorService } from '../setor.service';
 
 export class SetorIndexComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome'];
+  displayedColumns: string[] = ['id', 'nome', 'actions'];
   dataSource = new MatTableDataSource();
 
   total_pages: number;
   page_size:number;
 
-  constructor(private router: Router, protected service: SetorService) { 
+  constructor(private router: Router, protected service: SetorService, public dialog: MatDialog) { 
 
   }
 
@@ -41,7 +43,35 @@ export class SetorIndexComponent implements OnInit {
 
   create(): void
   {
-    this.router.navigate(['/setor/create'])
+    this.router.navigate(['/setor/create']);
+  }
+
+  show(id: number): void
+  {
+    this.router.navigate(['/setor/' + id]);
+  }
+
+  edit(id: number): void
+  {
+    this.router.navigate(['/setor/' + id + '/edit']);
+  }
+
+  confirmDelete(id: number): void
+  {
+    const dialogRef = this.dialog.open(SetorDeleteConfirmComponent, {
+      width: '400px',
+      data: {id: id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true)
+        this.delete(id);      
+    });
+  }
+
+  delete(id: number): void
+  {
+    console.log('Delete: ' + id);
   }
 
   filterByNome(filterValue: string): void 
@@ -59,6 +89,14 @@ export class SetorIndexComponent implements OnInit {
       this.filter_nome.nativeElement.value = '';
       this.service.cleanFilters();
     }
+  }
+
+  cleanFilter(): void 
+  {
+    this.filter_nome.nativeElement.value = '';
+    this.service.cleanFilters();
+    this.filter_nome.nativeElement.focus();
+    this.applyFilter();
   }
 
   applyFilter(): void 
