@@ -43,7 +43,7 @@ export class BaseService
     return this;
   }
 
-  public page(valor: number): BaseService
+  page(valor: number): BaseService
   {
     this._page = valor;
     return this;
@@ -84,4 +84,18 @@ export class BaseService
     this.http.get(this.globalApp.base_url + this.urn + this.makeQuery()).subscribe(callback);
   }
 
+  public destroy(callback): void
+  {
+    this.http.delete(this.globalApp.base_url + this.urn + this._filters['id']).subscribe(callback);
+  }
+
+  public store(callback): void
+  {
+    //this.http.post(this.globalApp.base_url + this.urn + this._filters['id']).subscribe(callback);    
+  }
+
+  public update(callback): void
+  {
+    //this.http.put(this.globalApp.base_url + this.urn + this._filters['id']).subscribe(callback);    
+  }
 }

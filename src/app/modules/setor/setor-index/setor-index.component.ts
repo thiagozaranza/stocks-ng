@@ -56,7 +56,7 @@ export class SetorIndexComponent implements OnInit {
     this.router.navigate(['/setor/' + id + '/edit']);
   }
 
-  confirmDelete(id: number): void
+  delete(id: number): void
   {
     const dialogRef = this.dialog.open(SetorDeleteConfirmComponent, {
       width: '400px',
@@ -69,9 +69,20 @@ export class SetorIndexComponent implements OnInit {
     });
   }
 
-  delete(id: number): void
+  destroy(id: number): void
   {
-    console.log('Delete: ' + id);
+    this.service.destroy((response) => {
+      this.dataSource.data = response.data;
+    });
+  }
+
+  index(): void 
+  {
+    this.service.index((response) => {
+      this.dataSource.data = response.data.list;
+      this.total_pages = response.data.total_results;
+      this.page_size = response.meta.request.query_params.paginator.limit;
+    });
   }
 
   filterByNome(filterValue: string): void 
@@ -83,7 +94,7 @@ export class SetorIndexComponent implements OnInit {
 
   onKeydown(event) {
     if (event.key === "Enter") {
-      this.applyFilter();
+      this.index();
     } else if (event.which === 27) {
       console.log('Esc');
       this.filter_nome.nativeElement.value = '';
@@ -96,17 +107,10 @@ export class SetorIndexComponent implements OnInit {
     this.filter_nome.nativeElement.value = '';
     this.service.cleanFilters();
     this.filter_nome.nativeElement.focus();
-    this.applyFilter();
+    this.index();
   }
 
-  applyFilter(): void 
-  {
-    this.service.index((response) => {
-      this.dataSource.data = response.data.list;
-      this.total_pages = response.data.total_results;
-      this.page_size = response.meta.request.query_params.paginator.limit;
-    });
-  }
+  
 
   public getServerData(event?:PageEvent): PageEvent 
   {
@@ -116,11 +120,7 @@ export class SetorIndexComponent implements OnInit {
         .limit(event.pageSize);
     }
 
-    this.service.index((response) => {
-      this.dataSource.data = response.data.list;
-      this.total_pages = response.data.total_results;
-      this.page_size = response.meta.request.query_params.paginator.limit;
-    });
+    this.index();
 
     return event;
   }
