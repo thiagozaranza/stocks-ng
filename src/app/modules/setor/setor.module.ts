@@ -18,6 +18,7 @@ import {
   MatSelectModule,
   MatChipsModule,
   MatDialogModule
+  
 } from '@angular/material';
 
 import { SetorIndexComponent } from './setor-index/setor-index.component';

@@ -8,3 +8,35 @@
     </div>
   </mat-toolbar-row>    
 </mat-toolbar>
+
+<div class="container">
+  <h2>{{setor.nome}}</h2>
+
+
+  <h3>Subsetores</h3>
+  <table mat-table [dataSource]="dataSourceSubsetores" matSort class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header width="60"> ID </th>
+      <td mat-cell *matCellDef="let subsetor"> {{subsetor.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+      <td mat-cell *matCellDef="let subsetor"> {{subsetor.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef width="40"> Ações </th>
+      <td mat-cell *matCellDef="let subsetor">
+        <div class="button-row">
+          <button mat-mini-fab color="default" (click)="showSubsetor(subsetor.id)"><mat-icon>launch</mat-icon></button>
+        </div>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedSubsetoresColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedSubsetoresColumns;"></tr>
+  
+  </table>
+</div>

@@ -26,7 +26,11 @@ import { GlobalApp } from './shared/global';
     SegmentoModule,
     HttpClientModule
   ],
-  providers: [GlobalApp],
-  bootstrap: [AppComponent]
+  providers: [
+    GlobalApp
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -84,6 +84,11 @@ export class BaseService
     this.http.get(this.globalApp.base_url + this.urn + this.makeQuery()).subscribe(callback);
   }
 
+  public show(id: number, callback): void
+  {
+    this.http.get(this.globalApp.base_url + this.urn + '/' + id).subscribe(callback);
+  }
+
   public destroy(callback): void
   {
     this.http.delete(this.globalApp.base_url + this.urn + this._filters['id']).subscribe(callback);

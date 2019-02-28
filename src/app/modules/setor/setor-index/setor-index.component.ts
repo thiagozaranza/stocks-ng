@@ -110,8 +110,6 @@ export class SetorIndexComponent implements OnInit {
     this.index();
   }
 
-  
-
   public getServerData(event?:PageEvent): PageEvent 
   {
     if (!isNull(event)) {
