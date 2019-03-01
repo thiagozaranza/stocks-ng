@@ -11,8 +11,7 @@ import {
 
 import { SetorService } from '../setor.service';
 import { SetorDeleteConfirmComponent } from '../setor-delete-confirm/setor-delete-confirm.component';
-import { RestNavigation } from 'src/app/shared/rest-navigation.decorator';
-import { RestServices } from 'src/app/shared/rest-services.decorator';
+import { Restfy } from 'src/app/shared/restfy.decorator';
 
 @Component({
   selector: 'app-setor-index',
@@ -20,8 +19,7 @@ import { RestServices } from 'src/app/shared/rest-services.decorator';
   styleUrls: ['./setor-index.component.scss']
 })
 
-@RestNavigation('setor')
-@RestServices()
+@Restfy('setor')
 
 export class SetorIndexComponent implements OnInit {
 
@@ -57,6 +55,15 @@ export class SetorIndexComponent implements OnInit {
       if (result === true)
         this.delete(id);      
     });
+  }
+
+  list(): void 
+  {
+      this.service.index((response) => {
+          this.dataSource.data = response.data.list;
+          this.total_pages = response.data.total_results;
+          this.page_size = response.meta.request.query_params.paginator.limit;
+      });
   }
 
   filterByNome(filterValue: string): void 

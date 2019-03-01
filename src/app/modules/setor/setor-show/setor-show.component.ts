@@ -5,7 +5,9 @@ import { MatTableDataSource } from '@angular/material';
 import { SetorService } from '../setor.service';
 import * as setorFactory from '../setor.factory';
 import { Setor } from '../setor';
-import { RestNavigation } from 'src/app/shared/rest-navigation.decorator';
+import { Restfy } from 'src/app/shared/restfy.decorator';
+import { SubsetorShowComponent } from '../../subsetor/subsetor-show/subsetor-show.component';
+import { showRequest } from 'src/app/shared/show-request.decorator';
 
 @Component({
   selector: 'app-setor-show',
@@ -13,7 +15,7 @@ import { RestNavigation } from 'src/app/shared/rest-navigation.decorator';
   styleUrls: ['./setor-show.component.scss']
 })
 
-@RestNavigation('setor')
+@Restfy('setor')
 
 export class SetorShowComponent implements OnInit {
 
@@ -25,17 +27,15 @@ export class SetorShowComponent implements OnInit {
 
   constructor(public router: Router, private route: ActivatedRoute, protected service: SetorService) 
   { 
+    this.id = Number(this.route.snapshot.paramMap.get("id"));
     this.setor = setorFactory.create();
   }
 
+  @showRequest(this.id)
+
   ngOnInit() 
   {
-    this.id = Number(this.route.snapshot.paramMap.get("id"));
     
-    this.service.show(this.id, (response) => {
-      this.setor = response.data;
-      this.dataSourceSubsetores.data = response.data.subsetores;
-    });
   }
 
   showSubsetor(subsetor_id: number): void
