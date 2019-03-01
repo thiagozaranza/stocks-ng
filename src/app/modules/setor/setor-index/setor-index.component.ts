@@ -11,12 +11,17 @@ import {
 
 import { SetorService } from '../setor.service';
 import { SetorDeleteConfirmComponent } from '../setor-delete-confirm/setor-delete-confirm.component';
+import { RestNavigation } from 'src/app/shared/rest-navigation.decorator';
+import { RestServices } from 'src/app/shared/rest-services.decorator';
 
 @Component({
   selector: 'app-setor-index',
   templateUrl: './setor-index.component.html',
   styleUrls: ['./setor-index.component.scss']
 })
+
+@RestNavigation('setor')
+@RestServices()
 
 export class SetorIndexComponent implements OnInit {
 
@@ -26,7 +31,7 @@ export class SetorIndexComponent implements OnInit {
   total_pages: number;
   page_size:number;
 
-  constructor(private router: Router, protected service: SetorService, public dialog: MatDialog) { 
+  constructor(public router: Router, protected service: SetorService, public dialog: MatDialog) { 
 
   }
 
@@ -39,21 +44,6 @@ export class SetorIndexComponent implements OnInit {
     this.service.clean();
     this.getServerData(null);
     this.filter_nome.nativeElement.focus();
-  }
-
-  create(): void
-  {
-    this.router.navigate(['/setor/create']);
-  }
-
-  show(id: number): void
-  {
-    this.router.navigate(['/setor/' + id]);
-  }
-
-  edit(id: number): void
-  {
-    this.router.navigate(['/setor/' + id + '/edit']);
   }
 
   delete(id: number): void
@@ -69,22 +59,6 @@ export class SetorIndexComponent implements OnInit {
     });
   }
 
-  destroy(id: number): void
-  {
-    this.service.destroy((response) => {
-      this.dataSource.data = response.data;
-    });
-  }
-
-  index(): void 
-  {
-    this.service.index((response) => {
-      this.dataSource.data = response.data.list;
-      this.total_pages = response.data.total_results;
-      this.page_size = response.meta.request.query_params.paginator.limit;
-    });
-  }
-
   filterByNome(filterValue: string): void 
   {
     let nome = filterValue.trim().toLowerCase();
@@ -94,9 +68,8 @@ export class SetorIndexComponent implements OnInit {
 
   onKeydown(event) {
     if (event.key === "Enter") {
-      this.index();
+      this.list();
     } else if (event.which === 27) {
-      console.log('Esc');
       this.filter_nome.nativeElement.value = '';
       this.service.cleanFilters();
     }
@@ -107,7 +80,7 @@ export class SetorIndexComponent implements OnInit {
     this.filter_nome.nativeElement.value = '';
     this.service.cleanFilters();
     this.filter_nome.nativeElement.focus();
-    this.index();
+    this.list();
   }
 
   public getServerData(event?:PageEvent): PageEvent 
@@ -118,7 +91,7 @@ export class SetorIndexComponent implements OnInit {
         .limit(event.pageSize);
     }
 
-    this.index();
+    this.list();
 
     return event;
   }
