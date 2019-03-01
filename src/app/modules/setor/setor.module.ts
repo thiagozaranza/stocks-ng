@@ -17,7 +17,9 @@ import {
   MatPaginatorModule,
   MatSelectModule,
   MatChipsModule,
-  MatDialogModule
+  MatDialogModule,
+  MatDividerModule,
+  MatCardModule
   
 } from '@angular/material';
 
@@ -53,7 +55,9 @@ import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete
     MatPaginatorModule,
     MatSelectModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule,
+    MatCardModule
   ],
   entryComponents: [
     SetorDeleteConfirmComponent

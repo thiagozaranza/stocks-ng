@@ -46,6 +46,16 @@ export class SetorShowComponent implements OnInit {
     this.router.navigate(['/setor']);
   }
 
+  create()
+  {
+    this.router.navigate(['/setor/create']);
+  }
+
+  edit()
+  {
+    this.router.navigate(['/setor/' + this.id + '/edit']);
+  }
+
   showSubsetor(subsetor_id: number): void
   {
     this.router.navigate(['/subsetor/' + subsetor_id]);
