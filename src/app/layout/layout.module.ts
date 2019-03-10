@@ -10,14 +10,17 @@ import {
   MatToolbarModule,
   MatMenuModule,
   MatButtonModule, 
-  MatIconModule
+  MatIconModule,
+  MatDialogModule
 } from '@angular/material';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     RootComponent,    
     NavigationComponent, 
-    FooterComponent
+    FooterComponent, 
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,11 @@ import {
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
+  ],
+  exports: [
+    AlertComponent
   ]
 })
 export class LayoutModule { }

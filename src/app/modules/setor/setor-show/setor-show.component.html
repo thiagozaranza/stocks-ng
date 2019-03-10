@@ -4,7 +4,7 @@
       <span class="title">Setor | Visualizar </span>  
       
       <div class="button-row">
-        <button mat-fab class="add-button" color="accent" (click)="index()">
+        <button mat-fab class="add-button" color="accent" (click)="root()">
           <mat-icon aria-label="Listar Setores">list</mat-icon>
         </button>
         <button mat-fab class="add-button" color="accent" (click)="create()">
@@ -27,7 +27,7 @@
     </button>
   </div>
 
-  <mat-card class="example-card">
+  <mat-card>
       <mat-card-header>
         <mat-card-title>{{setor.nome}}</mat-card-title>
       </mat-card-header>

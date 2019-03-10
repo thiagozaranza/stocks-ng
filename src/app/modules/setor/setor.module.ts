@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
 
 import {
   MatToolbarModule,
@@ -29,6 +30,8 @@ import { SetorService } from './setor.service';
 import { SetorShowComponent } from './setor-show/setor-show.component';
 import { SetorEditComponent } from './setor-edit/setor-edit.component';
 import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete-confirm.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AlertComponent } from 'src/app/layout/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete
   ],
   imports: [
     CommonModule,
+    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule, 
@@ -60,7 +66,8 @@ import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete
     MatCardModule
   ],
   entryComponents: [
-    SetorDeleteConfirmComponent
+    SetorDeleteConfirmComponent,
+    AlertComponent
   ],
   providers: [
     SetorService

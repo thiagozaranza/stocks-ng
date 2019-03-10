@@ -20,5 +20,4 @@ export class SetorDeleteConfirmComponent {
   onYesClick(): void {
     this.dialogRef.close();
   }
-
 }

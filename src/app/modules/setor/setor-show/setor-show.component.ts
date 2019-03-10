@@ -8,38 +8,43 @@ import { Setor } from '../setor';
 import { Restfy } from 'src/app/shared/restfy.decorator';
 import { SubsetorShowComponent } from '../../subsetor/subsetor-show/subsetor-show.component';
 import { showRequest } from 'src/app/shared/show-request.decorator';
+import { ShowComponent } from 'src/app/shared/components/crud/show-component';
 
 @Component({
-  selector: 'app-setor-show',
-  templateUrl: './setor-show.component.html',
-  styleUrls: ['./setor-show.component.scss']
+    selector: 'app-setor-show',
+    templateUrl: './setor-show.component.html',
+    styleUrls: ['./setor-show.component.scss']
 })
 
-@Restfy('setor')
+export class SetorShowComponent extends ShowComponent implements OnInit {
 
-export class SetorShowComponent implements OnInit {
+    private setor: Setor;
 
-  private id: number;
-  private setor: Setor;
+    public displayedSubsetoresColumns: string[] = ['id', 'nome', 'actions'];
+    public dataSourceSubsetores = new MatTableDataSource();
 
-  public displayedSubsetoresColumns: string[] = ['id', 'nome', 'actions'];
-  public dataSourceSubsetores = new MatTableDataSource();
+    constructor(public router: Router, private route: ActivatedRoute, protected service: SetorService) 
+    { 
+        super();
+        
+        this.resourceName = 'setor';
+        this.id = Number(this.route.snapshot.paramMap.get("id"));
+        this.setor = setorFactory.create();
+    }
 
-  constructor(public router: Router, private route: ActivatedRoute, protected service: SetorService) 
-  { 
-    this.id = Number(this.route.snapshot.paramMap.get("id"));
-    this.setor = setorFactory.create();
-  }
+    ngOnInit() 
+    {
+        super.ngOnInit();
+    }
 
-  @showRequest(this.id)
-
-  ngOnInit() 
-  {
-    
-  }
-
-  showSubsetor(subsetor_id: number): void
-  {
-    this.router.navigate(['/subsetor/' + subsetor_id]);
-  }
+    onPicked(response)
+    {
+        this.setor = response.data;
+        this.dataSourceSubsetores = response.data.subsetores;
+    }
+ 
+    showSubsetor(subsetor_id: number): void
+    {
+        this.router.navigate(['/subsetor/' + subsetor_id]);
+    }
 }
