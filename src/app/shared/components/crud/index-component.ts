@@ -80,10 +80,10 @@ export class IndexComponent implements OnInit
         }
     }
 
-    protected cleanFilter(): void 
+    protected clean(): void 
     {
         this.filter_nome.nativeElement.value = '';
-        this.service.cleanFilters();
+        this.service.clean();
         this.filter_nome.nativeElement.focus();
         this['list']();
     }

@@ -28,6 +28,11 @@ export class SetorIndexComponent extends IndexComponent implements OnInit  {
 
     @ViewChild('filterNome') filter_nome:ElementRef;
 
+    onDeleteSuccess(response) 
+    {
+        this.clean();
+    }
+
     ngOnInit() 
     {
         super.ngOnInit()

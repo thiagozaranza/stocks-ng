@@ -92,7 +92,7 @@ export class BaseService
 
     public destroy(id: number, callback, errorHandler): void
     {
-        this.http.delete(this.globalApp.base_url + this.urn + '/' + id).subscribe(callback);
+        this.http.delete(this.globalApp.base_url + this.urn + '/' + id).subscribe(callback, errorHandler);
     }
 
     public store(body, callback, errorHandler): void
