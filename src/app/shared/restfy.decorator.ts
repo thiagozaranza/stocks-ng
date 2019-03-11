@@ -10,8 +10,11 @@ export function Restfy(): ClassDecorator
 
         constructor.prototype.list = function () {
             this.service.list((response) => {
-                if ( typeof this['onListed'] === 'function')
-                    this['onListed'](response);
+                if ( typeof this['onListSuccess'] === 'function')
+                    this['onListSuccess'](response);
+            }, (error: HttpErrorResponse) => {
+                if ( typeof this['onListError'] === 'function')
+                    this['onListError'](error);
             });      
         }
 
@@ -35,8 +38,11 @@ export function Restfy(): ClassDecorator
 
         constructor.prototype.pick = function (id: number) {
             this.service.pick(id, (response) => {
-                if ( typeof this['onPicked'] === 'function')
-                    this['onPicked'](response);
+                if ( typeof this['onPickSuccess'] === 'function')
+                    this['onPickSuccess'](response);
+            }, (error: HttpErrorResponse) => {
+                if ( typeof this['onPickError'] === 'function')
+                    this['onPickError'](error);
             });      
         }
 
@@ -44,10 +50,13 @@ export function Restfy(): ClassDecorator
             this.router.navigate(['/' + this.resourceName + '/' + id + '/edit']);       
         }
 
-        constructor.prototype.save = function () {
-            this.service.save((response) => {
-                if ( typeof this['onSaved'] === 'function')
-                    this['onSaved'](response);
+        constructor.prototype.save = function (id: number, body) {
+            this.service.save(id, body, (response) => {
+                if ( typeof this['onSaveSuccess'] === 'function')
+                    this['onSaveSuccess'](response);
+            }, (error: HttpErrorResponse) => {
+                if ( typeof this['onSaveError'] === 'function')
+                    this['onSaveError'](error);
             });      
         }
     }

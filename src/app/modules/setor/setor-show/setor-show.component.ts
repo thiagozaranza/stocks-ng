@@ -37,7 +37,7 @@ export class SetorShowComponent extends ShowComponent implements OnInit {
         super.ngOnInit();
     }
 
-    onPicked(response)
+    onPickSuccess(response)
     {
         this.setor = response.data;
         this.dataSourceSubsetores = response.data.subsetores;

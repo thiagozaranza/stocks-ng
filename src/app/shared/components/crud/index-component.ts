@@ -37,7 +37,7 @@ export class IndexComponent implements OnInit
 
     @ViewChild(MatSort) sort: MatSort;
     
-    onListed(response): void 
+    onListSuccess(response): void 
     {
         this.dataSource.data = response.data.list;
         this.total_pages = response.data.total_results;

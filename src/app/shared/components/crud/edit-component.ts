@@ -5,7 +5,7 @@ import { AlertComponent } from 'src/app/layout/alert/alert.component';
 
 @Restfy()
 
-export class CreateComponent implements OnInit
+export class EditComponent implements OnInit
 { 
     protected resourceName;
     protected service;
@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit
         
     }
 
-    onStoreError(error: HttpErrorResponse): void
+    onSaveError(error: HttpErrorResponse): void
     {
         const dialogRef = this.dialog.open(AlertComponent, {
             width: '400px',
@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit
         });
     }
 
-    onStoreSuccess(response): void
+    onSaveSuccess(response): void
     {
         this['show'](response.data.id);
     }

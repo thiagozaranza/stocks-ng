@@ -42,7 +42,4 @@ export class SetorCreateComponent extends CreateComponent implements OnInit {
     {  
         this['store'](form);  
     }  
-
-    
-
 }
