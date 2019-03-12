@@ -1,0 +1,40 @@
+<div class="login-div"> 
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+    <mat-card class="login-card  mat-elevation-z4 center">
+   
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <br/>
+      <mat-card-content class="form-card">
+        
+        <mat-form-field>
+          <input matInput formControlName="username" #formUsuario placeholder="Usuário">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" #formSenha placeholder="Senha">
+        </mat-form-field>
+         
+      </mat-card-content>
+      <mat-card-actions align="center">
+            
+        <button mat-raised-button color="primary">
+          Entrar
+        </button>
+        
+      </mat-card-actions>
+      
+    </mat-card> 
+    
+    <mat-card class="login-card  mat-elevation-z4 center">
+      <mat-card-content class="form-card" align="center">
+        <button mat-button color="primary" (click)="forgot()">Esqueceu a senha?</button>
+        <br/><br/>
+        <button mat-button color="accent" (click)="join()">Registrar-se</button>
+      </mat-card-content>
+    </mat-card>
+    
+  </form>  
+</div> 

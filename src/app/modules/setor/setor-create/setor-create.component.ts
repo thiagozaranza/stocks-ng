@@ -3,7 +3,7 @@ import { SetorService } from '../setor.service';
 import { Router } from '@angular/router';
 import { CreateComponent } from 'src/app/shared/components/crud/create-component';
 import { Restfy } from 'src/app/shared/restfy.decorator';
-import { FormBuilder, FormGroup, Validators ,FormsModule,NgForm } from '@angular/forms';  
+import { FormBuilder, FormGroup, Validators , FormsModule,NgForm } from '@angular/forms';  
 import { AlertComponent } from 'src/app/layout/alert/alert.component';
 import { MatDialog } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';

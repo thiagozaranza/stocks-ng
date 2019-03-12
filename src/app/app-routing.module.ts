@@ -17,6 +17,9 @@ import { SegmentoIndexComponent } from './modules/segmento/segmento-index/segmen
 import { SegmentoCreateComponent } from './modules/segmento/segmento-create/segmento-create.component';
 import { SegmentoShowComponent } from './modules/segmento/segmento-show/segmento-show.component';
 import { SegmentoEditComponent } from './modules/segmento/segmento-edit/segmento-edit.component';
+import { JoinComponent } from './modules/auth/join/join.component';
+import { LoginComponent } from './modules/auth/login/login.component';
+import { ForgotComponent } from './modules/auth/forgot/forgot.component';
 
 const routes: Routes = [
   {
@@ -25,9 +28,13 @@ const routes: Routes = [
     children:  [
       { 
         path: '', 
-        redirectTo: 'setor', 
+        redirectTo: 'login', 
         pathMatch: 'full' 
       },
+      { path: 'login'             , component: LoginComponent },
+      { path: 'join'              , component: JoinComponent },
+      { path: 'forgot'            , component: ForgotComponent },
+
       { path: 'empresa'           , component: EmpresaIndexComponent }, 
       { path: 'empresa/create'    , component: EmpresaCreateComponent }, 
       { path: 'empresa/:id'       , component: EmpresaShowComponent}, 

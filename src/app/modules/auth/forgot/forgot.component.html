@@ -1,0 +1,28 @@
+<div class="forgot-div"> 
+  <form [formGroup]="forgotForm" (ngSubmit)="onFormSubmit(forgotForm.value)">
+    <mat-card class="forgot-card  mat-elevation-z4 center">
+   
+      <mat-card-header>
+        <mat-card-title>Lembrete de senha</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <br/>
+      <mat-card-content class="form-card">
+        
+        <mat-form-field>
+          <input matInput formControlName="email" #formEmail placeholder="Email">
+        </mat-form-field>
+ 
+      </mat-card-content>
+      <mat-card-actions align="center">
+            
+        <button mat-raised-button color="primary">
+          Lembrete
+        </button>
+        
+      </mat-card-actions>
+      
+    </mat-card> 
+    
+  </form>  
+</div> 
