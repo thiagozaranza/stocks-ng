@@ -20,7 +20,6 @@ import { SegmentoEditComponent } from './modules/segmento/segmento-edit/segmento
 import { JoinComponent } from './modules/auth/join/join.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { ForgotComponent } from './modules/auth/forgot/forgot.component';
-import { LogoutComponent } from './modules/auth/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -35,7 +34,6 @@ const routes: Routes = [
       { path: 'login'             , component: LoginComponent },
       { path: 'join'              , component: JoinComponent },
       { path: 'forgot'            , component: ForgotComponent },
-      { path: 'logout'            , component: LogoutComponent },
 
       { path: 'empresa'           , component: EmpresaIndexComponent }, 
       { path: 'empresa/create'    , component: EmpresaCreateComponent }, 

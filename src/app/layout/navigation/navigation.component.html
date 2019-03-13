@@ -26,10 +26,8 @@
       {{ logged_user }}</button>
     <mat-menu #menulogin="matMenu">
       <a mat-menu-item href="/perfil">Perfil</a>
-      <a mat-menu-item href="/logout">Sair</a>
+      <a mat-menu-item (click)="logout()">Sair</a>
     </mat-menu>
-
-    
 
   </mat-toolbar-row>
 </mat-toolbar>

@@ -13,13 +13,13 @@ import {
 import { ForgotComponent } from './forgot/forgot.component';
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
-import { LogoutComponent } from './logout/logout.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
     declarations: [
         LoginComponent, 
         JoinComponent, 
-        ForgotComponent, LogoutComponent
+        ForgotComponent
     ],
     imports: [
         CommonModule,
@@ -31,6 +31,9 @@ import { LogoutComponent } from './logout/logout.component';
         MatInputModule,
         MatDividerModule,
         MatCardModule
+    ],
+    providers: [
+        AuthService
     ]
 })
 export class AuthModule { }
