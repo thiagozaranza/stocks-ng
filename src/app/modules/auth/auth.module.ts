@@ -13,12 +13,13 @@ import {
 import { ForgotComponent } from './forgot/forgot.component';
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
     declarations: [
         LoginComponent, 
         JoinComponent, 
-        ForgotComponent
+        ForgotComponent, LogoutComponent
     ],
     imports: [
         CommonModule,

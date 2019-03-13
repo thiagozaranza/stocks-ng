@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+    logged_user = '';
 
-  ngOnInit() {
-  }
+    constructor() 
+    { 
+        
+    }
+
+    ngOnInit() 
+    {
+        if (localStorage.getItem('user_name'))
+            this.logged_user = localStorage.getItem('user_name');
+    }
 
 }

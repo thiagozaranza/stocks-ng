@@ -19,5 +19,17 @@
       <a mat-menu-item href="/responsaveis/cadastro">Cadastrar</a>
     </mat-menu>
 
+    <span class="fill-space"></span>
+
+    <button mat-button [matMenuTriggerFor]="menulogin">
+      <mat-icon class="example-icon">account_circle</mat-icon>
+      {{ logged_user }}</button>
+    <mat-menu #menulogin="matMenu">
+      <a mat-menu-item href="/perfil">Perfil</a>
+      <a mat-menu-item href="/logout">Sair</a>
+    </mat-menu>
+
+    
+
   </mat-toolbar-row>
 </mat-toolbar>
