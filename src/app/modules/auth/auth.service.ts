@@ -28,13 +28,50 @@ export class AuthService
 
         console.log(token);
 
-        if (token == 'null')
+        if (token == 'null' || token == null)
             return false;
 
         return !this.jwtHelper.isTokenExpired(token);
     }
 
-    login(form:NgForm)
+    login()
+    {
+        if (!this.isAuthenticated())
+            this.router.navigate(['/login']);
+        else     
+            this.router.navigate(['/home']);
+    }
+
+    home()
+    {
+        this.router.navigate(['/home']); 
+    }
+
+    join()
+    {
+        this.router.navigate(['/join']); 
+    }
+
+    register()
+    {
+        this.router.navigate(['/register']); 
+    }
+
+    registerSubmit(form:NgForm)
+    {
+        this.http.post(this.globalApp.base_url + 'register', form).subscribe((response) => {
+            this.login();
+        }, (error) => {
+            console.log(error);
+        }); 
+    }
+
+    forgot()
+    {
+        this.router.navigate(['/forgot']); 
+    }
+
+    loginSubmit(form:NgForm)
     {
         form['grant_type'] = "password";
         form['client_id'] = this.globalApp.client_id + "";
@@ -59,7 +96,7 @@ export class AuthService
 
                     this.callAuthService.next(response['data']);
                     
-                    this.router.navigate(['/setor']);  
+                    this.router.navigate(['/home']);  
                 });
         }, (error) => {
             console.log(error);
@@ -74,6 +111,6 @@ export class AuthService
 
         this.callAuthService.next(null);
 
-        this.router.navigate(['/login']);  
+        this.router.navigate(['/landpage']);  
     }
 }

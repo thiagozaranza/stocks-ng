@@ -5,28 +5,24 @@
       <mat-icon>assessment</mat-icon>Stocks Analytics
     </a>
 
-    <button mat-button [matMenuTriggerFor]="menuprocessos">Tabelas</button>
-    <mat-menu #menuprocessos="matMenu">
+    <button *ngIf="logged_user_id != null" mat-button [matMenuTriggerFor]="menutabelas">Tabelas</button>
+    <mat-menu #menutabelas>
       <a mat-menu-item href="/empresa">Empresas</a>
       <a mat-menu-item href="/setor">Setor</a>
       <a mat-menu-item href="/subsetor">Subsetor</a>
       <a mat-menu-item href="/segmento">Segmento</a>
     </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="menuresponsaveis">Responsáveis</button>
-    <mat-menu #menuresponsaveis="matMenu">
-      <a mat-menu-item href="/responsaveis">Consultar</a>
-      <a mat-menu-item href="/responsaveis/cadastro">Cadastrar</a>
-    </mat-menu>
+    <button mat-button *ngIf="logged_user_id == null" (click)="login()">Entrar</button>
 
     <span class="fill-space"></span>
 
     <button mat-button [matMenuTriggerFor]="menulogin">
       <mat-icon class="example-icon">account_circle</mat-icon>
       {{ logged_user }}</button>
-    <mat-menu #menulogin="matMenu">
-      <a mat-menu-item href="/perfil">Perfil</a>
-      <a mat-menu-item (click)="logout()">Sair</a>
+    <mat-menu  #menulogin>
+      <a *ngIf="logged_user_id != null" mat-menu-item href="/profile">Perfil</a>
+      <a *ngIf="logged_user_id != null" mat-menu-item (click)="logout()">Sair</a>
     </mat-menu>
 
   </mat-toolbar-row>

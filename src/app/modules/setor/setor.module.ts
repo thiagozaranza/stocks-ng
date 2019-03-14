@@ -31,7 +31,7 @@ import { SetorShowComponent } from './setor-show/setor-show.component';
 import { SetorEditComponent } from './setor-edit/setor-edit.component';
 import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete-confirm.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { AlertComponent } from 'src/app/layout/alert/alert.component';
+import { AlertComponent } from 'src/app/modules/layout/alert/alert.component';
 
 @NgModule({
   declarations: [

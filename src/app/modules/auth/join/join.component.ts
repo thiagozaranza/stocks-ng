@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { GlobalApp } from 'src/app/shared/global';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-join',
@@ -13,7 +14,7 @@ export class JoinComponent implements OnInit
 {
     joinForm: FormGroup; 
     
-    constructor(protected http: HttpClient, protected globalApp: GlobalApp, private router: Router, private fb: FormBuilder) 
+    constructor(private authService: AuthService, private fb: FormBuilder) 
     { 
         this.joinForm = fb.group({  
             'name' : [null, Validators.required],
@@ -28,11 +29,6 @@ export class JoinComponent implements OnInit
 
     onFormSubmit(form:NgForm)  
     {  
-        this.http.post(this.globalApp.base_url + 'register', form).subscribe((response) => {
-
-        }, (error) => {
-
-        }); 
+        this.authService.registerSubmit(form);
     }
-
 }

@@ -1,7 +1,7 @@
 import { Restfy } from '../../restfy.decorator';
 import { OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AlertComponent } from 'src/app/layout/alert/alert.component';
+import { AlertComponent } from 'src/app/modules/layout/alert/alert.component';
 
 @Restfy()
 

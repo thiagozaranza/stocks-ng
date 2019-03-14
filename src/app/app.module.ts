@@ -8,12 +8,13 @@ import { EmpresaModule } from './modules/empresa/empresa.module';
 import { SetorModule } from './modules/setor/setor.module';
 import { SubsetorModule } from './modules/subsetor/subsetor.module';
 import { SegmentoModule } from './modules/segmento/segmento.module';
-import { LayoutModule } from './layout/layout.module';
+import { LayoutModule } from './modules/layout/layout.module'; 
 import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { GlobalApp } from './shared/global';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { PagesModule } from './modules/pages/pages.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -33,6 +34,7 @@ export function tokenGetter() {
     SetorModule,
     SubsetorModule,
     SegmentoModule,
+    PagesModule,
     AuthModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({

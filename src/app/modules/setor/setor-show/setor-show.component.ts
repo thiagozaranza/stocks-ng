@@ -5,14 +5,11 @@ import { MatTableDataSource } from '@angular/material';
 import { SetorService } from '../setor.service';
 import * as setorFactory from '../setor.factory';
 import { Setor } from '../setor';
-import { Restfy } from 'src/app/shared/restfy.decorator';
-import { SubsetorShowComponent } from '../../subsetor/subsetor-show/subsetor-show.component';
-import { showRequest } from 'src/app/shared/show-request.decorator';
 import { ShowComponent } from 'src/app/shared/components/crud/show-component';
 
 @Component({
     selector: 'app-setor-show',
-    templateUrl: './setor-show.component.html',
+    templateUrl: './setor-show.component.html', 
     styleUrls: ['./setor-show.component.scss']
 })
 

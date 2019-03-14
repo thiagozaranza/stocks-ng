@@ -15,12 +15,13 @@ import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
         LoginComponent, 
         JoinComponent, 
-        ForgotComponent
+        ForgotComponent, ProfileComponent
     ],
     imports: [
         CommonModule,

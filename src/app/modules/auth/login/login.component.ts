@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit
     loginForm: FormGroup; 
 
     
-    constructor(private service: AuthService, private router: Router, private fb: FormBuilder) 
+    constructor(private authService: AuthService, private fb: FormBuilder) 
     { 
         this.loginForm = fb.group({  
             'username' : [null, Validators.required],
@@ -23,19 +23,20 @@ export class LoginComponent implements OnInit
     }
 
     ngOnInit() {
-        
+        if (this.authService.isAuthenticated())
+            this.authService.home();
     }
 
     onFormSubmit(form:NgForm)
     {  
-        this.service.login(form);
+        this.authService.loginSubmit(form);
     }
 
     join() {
-        this.router.navigate(['/join']);       
+        this.authService.join();       
     }
 
     forgot() {
-        this.router.navigate(['/forgot']);       
+        this.authService.forgot();       
     }
 }
