@@ -14,6 +14,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
     declarations: [
@@ -30,10 +31,11 @@ import { AuthService } from './auth.service';
         MatFormFieldModule,
         MatInputModule,
         MatDividerModule,
-        MatCardModule
+        MatCardModule,
     ],
     providers: [
-        AuthService
+        AuthService,
+        AuthGuardService
     ]
 })
 export class AuthModule { }

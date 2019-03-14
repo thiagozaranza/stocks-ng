@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import decode from 'jwt-decode';
 import { Subject } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { isNull } from 'util';
 
 @Injectable({
     providedIn: 'root'
@@ -15,9 +17,21 @@ export class AuthService
     private callAuthService = new Subject<any>();
     callAuthService$ = this.callAuthService.asObservable();
 
-    constructor(protected http: HttpClient, protected globalApp: GlobalApp, private router: Router) 
+    constructor(public jwtHelper: JwtHelperService, protected http: HttpClient, protected globalApp: GlobalApp, private router: Router) 
     { 
         
+    }
+
+    public isAuthenticated(): boolean 
+    {
+        const token = localStorage.getItem('access_token');
+
+        console.log(token);
+
+        if (token == 'null')
+            return false;
+
+        return !this.jwtHelper.isTokenExpired(token);
     }
 
     login(form:NgForm)
@@ -33,6 +47,8 @@ export class AuthService
             const tokenPayload = decode(response['access_token']);
 
             localStorage.setItem('access_token', token);
+
+            console.log(localStorage.getItem('access_token'));
 
             this.http.get(this.globalApp.base_url + 'rest/user/' + tokenPayload['sub'], {
                     headers: new HttpHeaders().set('Authorization', token)

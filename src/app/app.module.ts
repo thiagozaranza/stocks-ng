@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { LOCAL_STORAGE, WebStorageService, StorageServiceModule } from 'angular-webstorage-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +9,15 @@ import { SetorModule } from './modules/setor/setor.module';
 import { SubsetorModule } from './modules/subsetor/subsetor.module';
 import { SegmentoModule } from './modules/segmento/segmento.module';
 import { LayoutModule } from './layout/layout.module';
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http'; 
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { GlobalApp } from './shared/global';
 import { AuthModule } from './modules/auth/auth.module';
+import { AuthInterceptor } from './modules/auth/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 
 @NgModule({
@@ -34,10 +39,20 @@ import { AuthModule } from './modules/auth/auth.module';
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',
     }),
-    StorageServiceModule
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
   providers: [
-    GlobalApp
+    GlobalApp,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+
   ],
   bootstrap: [
     AppComponent
