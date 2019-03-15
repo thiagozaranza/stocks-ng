@@ -10,13 +10,9 @@ import { SetorEditComponent } from './modules/setor/setor-edit/setor-edit.compon
 import { EmpresaShowComponent } from './modules/empresa/empresa-show/empresa-show.component';
 import { EmpresaEditComponent } from './modules/empresa/empresa-edit/empresa-edit.component';
 import { SubsetorIndexComponent } from './modules/subsetor/subsetor-index/subsetor-index.component';
-import { SubsetorCreateComponent } from './modules/subsetor/subsetor-create/subsetor-create.component';
 import { SubsetorShowComponent } from './modules/subsetor/subsetor-show/subsetor-show.component';
-import { SubsetorEditComponent } from './modules/subsetor/subsetor-edit/subsetor-edit.component';
 import { SegmentoIndexComponent } from './modules/segmento/segmento-index/segmento-index.component';
-import { SegmentoCreateComponent } from './modules/segmento/segmento-create/segmento-create.component';
 import { SegmentoShowComponent } from './modules/segmento/segmento-show/segmento-show.component';
-import { SegmentoEditComponent } from './modules/segmento/segmento-edit/segmento-edit.component';
 import { JoinComponent } from './modules/auth/join/join.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { ForgotComponent } from './modules/auth/forgot/forgot.component';
@@ -56,14 +52,10 @@ const routes: Routes = [
       { path: 'setor/:id/edit'    , component: SetorEditComponent, canActivate: [AuthGuard] }, 
 
       { path: 'subsetor'          , component: SubsetorIndexComponent, canActivate: [AuthGuard] }, 
-      { path: 'subsetor/create'   , component: SubsetorCreateComponent, canActivate: [AuthGuard] },
       { path: 'subsetor/:id'      , component: SubsetorShowComponent, canActivate: [AuthGuard] }, 
-      { path: 'subsetor/:id/edit' , component: SubsetorEditComponent, canActivate: [AuthGuard] }, 
 
       { path: 'segmento'          , component: SegmentoIndexComponent, canActivate: [AuthGuard] }, 
-      { path: 'segmento/create'   , component: SegmentoCreateComponent, canActivate: [AuthGuard] },
       { path: 'segmento/:id'      , component: SegmentoShowComponent, canActivate: [AuthGuard] }, 
-      { path: 'segmento/:id/edit' , component: SegmentoEditComponent, canActivate: [AuthGuard] }, 
       { path: '**', redirectTo: 'home' },
       
     ]

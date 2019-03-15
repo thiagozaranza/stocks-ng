@@ -21,7 +21,6 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatCardModule
-  
 } from '@angular/material';
 
 import { SetorIndexComponent } from './setor-index/setor-index.component';

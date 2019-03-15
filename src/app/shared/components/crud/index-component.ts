@@ -23,6 +23,8 @@ export class IndexComponent implements OnInit
     protected filter_nome:ElementRef;
     protected mainFieldFilterName: string;
 
+    protected with;
+
     constructor() { 
         
     }
@@ -93,8 +95,11 @@ export class IndexComponent implements OnInit
         if (!isNull(event)) {
             this.service
                 .page(event.pageIndex + 1)
-                .limit(event.pageSize);
+                .limit(event.pageSize)
+                
         }
+
+        this.service.with(this.with);
 
         this['list']();
 

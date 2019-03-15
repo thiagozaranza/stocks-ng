@@ -4,6 +4,26 @@ import { EmpresaIndexComponent } from './empresa-index/empresa-index.component';
 import { EmpresaCreateComponent } from './empresa-create/empresa-create.component';
 import { EmpresaEditComponent } from './empresa-edit/empresa-edit.component';
 import { EmpresaShowComponent } from './empresa-show/empresa-show.component';
+import {
+  MatToolbarModule,
+  MatMenuModule,
+  MatButtonModule, 
+  MatIconModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatGridListModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatSlideToggleModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatChipsModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatCardModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -12,7 +32,25 @@ import { EmpresaShowComponent } from './empresa-show/empresa-show.component';
     EmpresaEditComponent,
     EmpresaShowComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule, 
+    MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatCardModule
   ]
 })
 export class EmpresaModule { }

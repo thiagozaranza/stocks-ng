@@ -3,6 +3,7 @@ import { GlobalApp } from '../shared/global';
 import { Subject, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { isArray, isString } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class BaseService
     public _limit: number;
     public _page: number;
     public _filters: object = {};
+    public _with;
 
     constructor(protected http: HttpClient, protected globalApp: GlobalApp) { 
         
@@ -44,6 +46,12 @@ export class BaseService
         return this;
     }
 
+    with(valor): BaseService
+    {
+        this._with = valor;
+        return this;
+    }
+
     page(valor: number): BaseService
     {
         this._page = valor;
@@ -68,13 +76,19 @@ export class BaseService
 
         for (const key in this._filters) {
 
-        if (this._filters[key].length == 0)
-            continue;
+            if (this._filters[key].length == 0)
+                continue;
 
-        if (isNaN(Number(this._filters[key])))
-            query += '&' + key + '-lk=' + this._filters[key];
-        else
-            query += '&id=' + this._filters[key];        
+            if (isNaN(Number(this._filters[key])))
+                query += '&' + key + '-lk=' + this._filters[key];
+            else
+                query += '&id=' + this._filters[key];        
+        }
+
+        if (isArray(this._with)) {
+            query += '&with=' + this._with.join(',');
+        } else if (isString(this._with)) {
+            query += '&with=' + this._with;
         }
 
         return query;

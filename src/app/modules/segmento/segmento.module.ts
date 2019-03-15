@@ -1,14 +1,54 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SegmentoCreateComponent } from './segmento-create/segmento-create.component';
 import { SegmentoShowComponent } from './segmento-show/segmento-show.component';
-import { SegmentoEditComponent } from './segmento-edit/segmento-edit.component';
 import { SegmentoIndexComponent } from './segmento-index/segmento-index.component';
+import {
+  MatToolbarModule,
+  MatMenuModule,
+  MatButtonModule, 
+  MatIconModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatGridListModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatSlideToggleModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatChipsModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatCardModule
+} from '@angular/material';
+import { SegmentoService } from './segmento.service';
 
 @NgModule({
-  declarations: [SegmentoCreateComponent, SegmentoShowComponent, SegmentoEditComponent, SegmentoIndexComponent],
+  declarations: [SegmentoShowComponent, SegmentoIndexComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule, 
+    MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatCardModule
+  ],
+  providers: [
+    SegmentoService
   ]
 })
 export class SegmentoModule { }
