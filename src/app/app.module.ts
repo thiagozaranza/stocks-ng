@@ -15,6 +15,8 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PagesModule } from './modules/pages/pages.module';
+import { IndiceModule } from './modules/indice/indice.module';
+import { AtivoModule } from './modules/ativo/ativo.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -34,6 +36,8 @@ export function tokenGetter() {
     SetorModule,
     SubsetorModule,
     SegmentoModule,
+    IndiceModule,
+    AtivoModule,
     PagesModule,
     AuthModule,
     HttpClientModule,

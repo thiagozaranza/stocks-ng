@@ -20,6 +20,10 @@ import { AuthGuardService as AuthGuard } from './modules/auth/auth-guard.service
 import { LandpageComponent } from './modules/pages/landpage/landpage.component';
 import { HomeComponent } from './modules/pages/home/home.component';
 import { ProfileComponent } from './modules/auth/profile/profile.component';
+import { IndiceIndexComponent } from './modules/indice/indice-index/indice-index.component';
+import { IndiceShowComponent } from './modules/indice/indice-show/indice-show.component';
+import { AtivoIndexComponent } from './modules/ativo/ativo-index/ativo-index.component';
+import { AtivoShowComponent } from './modules/ativo/ativo-show/ativo-show.component';
 
 const routes: Routes = [
   {
@@ -55,7 +59,14 @@ const routes: Routes = [
       { path: 'subsetor/:id'      , component: SubsetorShowComponent, canActivate: [AuthGuard] }, 
 
       { path: 'segmento'          , component: SegmentoIndexComponent, canActivate: [AuthGuard] }, 
-      { path: 'segmento/:id'      , component: SegmentoShowComponent, canActivate: [AuthGuard] }, 
+      { path: 'segmento/:id'      , component: SegmentoShowComponent, canActivate: [AuthGuard] },
+      
+      { path: 'indice'            , component: IndiceIndexComponent, canActivate: [AuthGuard] }, 
+      { path: 'indice/:id'        , component: IndiceShowComponent, canActivate: [AuthGuard] },
+
+      { path: 'ativo'             , component: AtivoIndexComponent, canActivate: [AuthGuard] }, 
+      { path: 'ativo/:id'         , component: AtivoShowComponent, canActivate: [AuthGuard] },
+
       { path: '**', redirectTo: 'home' },
       
     ]

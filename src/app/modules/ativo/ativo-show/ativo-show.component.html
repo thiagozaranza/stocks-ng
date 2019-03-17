@@ -1,0 +1,30 @@
+<mat-toolbar color="secundary" class="mat-elevation-z2">    
+  <mat-toolbar-row>
+    <div class="container">
+      <span class="title">Ativo | Visualizar </span>  
+      
+      <div class="button-row">
+        <button mat-fab class="add-button" color="accent" (click)="root()">
+          <mat-icon aria-label="Listar Ativos">list</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>    
+</mat-toolbar>
+
+<div class="container">
+  <h2></h2>
+  <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ativo.codigo}}</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <br/>      
+      <mat-card-content>  
+        <div class="form-group">
+          <label>Empresa: </label>
+          <span>{{empresa.nome}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</div>

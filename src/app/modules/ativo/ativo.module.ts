@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmpresaIndexComponent } from './empresa-index/empresa-index.component';
-import { EmpresaCreateComponent } from './empresa-create/empresa-create.component';
-import { EmpresaEditComponent } from './empresa-edit/empresa-edit.component';
-import { EmpresaShowComponent } from './empresa-show/empresa-show.component';
+import { AtivoIndexComponent } from './ativo-index/ativo-index.component';
+import { AtivoShowComponent } from './ativo-show/ativo-show.component';
 import {
   MatToolbarModule,
   MatMenuModule,
@@ -25,15 +23,15 @@ import {
   MatCardModule,
   MatProgressBarModule
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AtivoService } from './ativo.service';
 
 @NgModule({
-  declarations: [
-    EmpresaIndexComponent,
-    EmpresaCreateComponent,
-    EmpresaEditComponent,
-    EmpresaShowComponent],
+  declarations: [AtivoIndexComponent, AtivoShowComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule, 
@@ -53,6 +51,9 @@ import {
     MatDividerModule,
     MatCardModule,
     MatProgressBarModule
+  ],
+  providers: [
+    AtivoService
   ]
 })
-export class EmpresaModule { }
+export class AtivoModule { }

@@ -10,15 +10,15 @@ import { EmpresaService } from '../empresa.service';
   templateUrl: './empresa-index.component.html',
   styleUrls: ['./empresa-index.component.scss']
 })
-export class EmpresaIndexComponent extends IndexComponent implements OnInit {
-
-  constructor(protected router: Router, protected service: EmpresaService, protected dialog: MatDialog) 
+export class EmpresaIndexComponent extends IndexComponent implements OnInit 
+{
+    constructor(protected router: Router, protected service: EmpresaService, protected dialog: MatDialog) 
     { 
         super();
         
         this.resourceName = 'empresa';
         this.mainFieldFilterName = 'nome';
-        this.displayedColumns = ['id', 'nome', 'codigo', 'setor', 'actions'];
+        this.displayedColumns = ['id', 'nome', 'subsegmento', 'codigo', 'setor', 'actions'];
         this.deleteConfirmComponent = SetorDeleteConfirmComponent;
         this.with = ['segmento-subsetor-setor'];
     }

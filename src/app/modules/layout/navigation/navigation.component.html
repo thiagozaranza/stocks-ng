@@ -8,6 +8,12 @@
     <button *ngIf="logged_user_id != null" mat-button [matMenuTriggerFor]="menutabelas">Tabelas</button>
     <mat-menu #menutabelas>
       <a mat-menu-item href="/empresa">Empresas</a>
+      <a mat-menu-item [matMenuTriggerFor]="setorial">Setorial</a>
+      <a mat-menu-item href="/indice">Índices</a>
+      <a mat-menu-item href="/ativo">Ativos</a>
+    </mat-menu>
+
+    <mat-menu #setorial="matMenu">
       <a mat-menu-item href="/setor">Setor</a>
       <a mat-menu-item href="/subsetor">Subsetor</a>
       <a mat-menu-item href="/segmento">Segmento</a>

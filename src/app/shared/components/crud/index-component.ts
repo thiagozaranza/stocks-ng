@@ -23,10 +23,12 @@ export class IndexComponent implements OnInit
     protected filter_nome:ElementRef;
     protected mainFieldFilterName: string;
 
+    public loading: boolean;
+
     protected with;
 
     constructor() { 
-        
+        this.loading = false;
     }
 
     ngOnInit() 
@@ -44,6 +46,8 @@ export class IndexComponent implements OnInit
         this.dataSource.data = response.data.list;
         this.total_pages = response.data.total_results;
         this.page_size = response.meta.request.query_params.paginator.limit;
+
+        this.loading = false;
     }
 
     destroy(id: number): void
@@ -92,6 +96,8 @@ export class IndexComponent implements OnInit
 
     public getServerData(event?:PageEvent): PageEvent 
     {
+        this.loading = true;
+
         if (!isNull(event)) {
             this.service
                 .page(event.pageIndex + 1)

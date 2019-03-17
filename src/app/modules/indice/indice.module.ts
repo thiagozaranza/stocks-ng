@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmpresaIndexComponent } from './empresa-index/empresa-index.component';
-import { EmpresaCreateComponent } from './empresa-create/empresa-create.component';
-import { EmpresaEditComponent } from './empresa-edit/empresa-edit.component';
-import { EmpresaShowComponent } from './empresa-show/empresa-show.component';
+import { IndiceIndexComponent } from './indice-index/indice-index.component';
+import { IndiceShowComponent } from './indice-show/indice-show.component';
 import {
   MatToolbarModule,
   MatMenuModule,
@@ -25,15 +23,18 @@ import {
   MatCardModule,
   MatProgressBarModule
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IndiceService } from './indice.service';
 
 @NgModule({
   declarations: [
-    EmpresaIndexComponent,
-    EmpresaCreateComponent,
-    EmpresaEditComponent,
-    EmpresaShowComponent],
+    IndiceIndexComponent, 
+    IndiceShowComponent
+  ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule, 
@@ -53,6 +54,9 @@ import {
     MatDividerModule,
     MatCardModule,
     MatProgressBarModule
+  ],
+  providers: [
+    IndiceService
   ]
 })
-export class EmpresaModule { }
+export class IndiceModule { }
