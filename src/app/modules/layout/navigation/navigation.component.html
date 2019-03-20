@@ -7,10 +7,15 @@
 
     <button *ngIf="logged_user_id != null" mat-button [matMenuTriggerFor]="menutabelas">Tabelas</button>
     <mat-menu #menutabelas>
+      <a mat-menu-item [matMenuTriggerFor]="bolsa">Bolsa de valores</a>
+      <a mat-menu-item [matMenuTriggerFor]="tesouro">Tesouro Direto</a>
+    </mat-menu>
+
+    <mat-menu #bolsa="matMenu">
       <a mat-menu-item href="/empresa">Empresas</a>
-      <a mat-menu-item [matMenuTriggerFor]="setorial">Setorial</a>
-      <a mat-menu-item href="/indice">Índices</a>
       <a mat-menu-item href="/ativo">Ativos</a>
+      <a mat-menu-item href="/indice">Índices</a>
+      <a mat-menu-item [matMenuTriggerFor]="setorial">Setores</a>
     </mat-menu>
 
     <mat-menu #setorial="matMenu">
@@ -18,6 +23,13 @@
       <a mat-menu-item href="/subsetor">Subsetor</a>
       <a mat-menu-item href="/segmento">Segmento</a>
     </mat-menu>
+
+    <mat-menu #tesouro="matMenu">
+        <a mat-menu-item href="/tesouro-categoria">Categorias de Títulos</a>
+        <a mat-menu-item href="/tesouro-tipo">Tipos de Títulos</a>
+        <a mat-menu-item href="/tesouro-titulo">Título do Tesouro</a>
+        <a mat-menu-item href="/tesouro-cotacao">Histórico de Cotações</a>
+      </mat-menu>
 
     <button mat-button *ngIf="logged_user_id == null" (click)="login()">Entrar</button>
 

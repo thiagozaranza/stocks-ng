@@ -17,6 +17,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { PagesModule } from './modules/pages/pages.module';
 import { IndiceModule } from './modules/indice/indice.module';
 import { AtivoModule } from './modules/ativo/ativo.module';
+import { TesouroCategoriaModule } from './modules/tesouro-categoria/tesouro-categoria.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -38,6 +39,7 @@ export function tokenGetter() {
     SegmentoModule,
     IndiceModule,
     AtivoModule,
+    TesouroCategoriaModule,
     PagesModule,
     AuthModule,
     HttpClientModule,

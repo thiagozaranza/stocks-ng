@@ -24,6 +24,8 @@ import { IndiceIndexComponent } from './modules/indice/indice-index/indice-index
 import { IndiceShowComponent } from './modules/indice/indice-show/indice-show.component';
 import { AtivoIndexComponent } from './modules/ativo/ativo-index/ativo-index.component';
 import { AtivoShowComponent } from './modules/ativo/ativo-show/ativo-show.component';
+import { TesouroCategoriaIndexComponent } from './modules/tesouro-categoria/tesouro-categoria-index/tesouro-categoria-index.component';
+import { TesouroCategoriaShowComponent } from './modules/tesouro-categoria/tesouro-categoria-show/tesouro-categoria-show.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,9 @@ const routes: Routes = [
 
       { path: 'ativo'             , component: AtivoIndexComponent, canActivate: [AuthGuard] }, 
       { path: 'ativo/:id'         , component: AtivoShowComponent, canActivate: [AuthGuard] },
+
+      { path: 'tesouro-categoria'       , component: TesouroCategoriaIndexComponent, canActivate: [AuthGuard] },
+      { path: 'tesouro-categoria/:id'   , component: TesouroCategoriaShowComponent, canActivate: [AuthGuard] }, 
 
       { path: '**', redirectTo: 'home' },
       
