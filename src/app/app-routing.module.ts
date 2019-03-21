@@ -26,6 +26,8 @@ import { AtivoIndexComponent } from './modules/ativo/ativo-index/ativo-index.com
 import { AtivoShowComponent } from './modules/ativo/ativo-show/ativo-show.component';
 import { TesouroCategoriaIndexComponent } from './modules/tesouro-categoria/tesouro-categoria-index/tesouro-categoria-index.component';
 import { TesouroCategoriaShowComponent } from './modules/tesouro-categoria/tesouro-categoria-show/tesouro-categoria-show.component';
+import { TesouroTipoShowComponent } from './modules/tesouro-tipo/tesouro-tipo-show/tesouro-tipo-show.component';
+import { TesouroTipoIndexComponent } from './modules/tesouro-tipo/tesouro-tipo-index/tesouro-tipo-index.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,9 @@ const routes: Routes = [
 
       { path: 'tesouro-categoria'       , component: TesouroCategoriaIndexComponent, canActivate: [AuthGuard] },
       { path: 'tesouro-categoria/:id'   , component: TesouroCategoriaShowComponent, canActivate: [AuthGuard] }, 
+
+      { path: 'tesouro-tipo'       , component: TesouroTipoIndexComponent, canActivate: [AuthGuard] },
+      { path: 'tesouro-tipo/:id'   , component: TesouroTipoShowComponent, canActivate: [AuthGuard] }, 
 
       { path: '**', redirectTo: 'home' },
       

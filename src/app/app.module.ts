@@ -18,6 +18,7 @@ import { PagesModule } from './modules/pages/pages.module';
 import { IndiceModule } from './modules/indice/indice.module';
 import { AtivoModule } from './modules/ativo/ativo.module';
 import { TesouroCategoriaModule } from './modules/tesouro-categoria/tesouro-categoria.module';
+import { TesouroTipoModule } from './modules/tesouro-tipo/tesouro-tipo.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -40,6 +41,7 @@ export function tokenGetter() {
     IndiceModule,
     AtivoModule,
     TesouroCategoriaModule,
+    TesouroTipoModule,
     PagesModule,
     AuthModule,
     HttpClientModule,

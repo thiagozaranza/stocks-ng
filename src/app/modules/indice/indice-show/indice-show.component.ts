@@ -3,7 +3,6 @@ import { Indice } from '../indice';
 import { MatTableDataSource } from '@angular/material';
 import { ShowComponent } from 'src/app/shared/components/crud/show-component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SegmentoService } from '../../segmento/segmento.service';
 import * as indiceFactory from '../../indice/indice.factory';
 import { IndiceService } from '../indice.service';
 
