@@ -43,9 +43,9 @@ export class TesouroTipoShowComponent extends ShowComponent implements OnInit {
       this.dataSourceTitulos = response.data.titulos;
   }
 
-  showTipo(empresa_id: number): void
+  showTitulo(titulo_id: number): void
   {
-      this.router.navigate(['/tesouro-tipo/' + empresa_id]);
+      this.router.navigate(['/tesouro-titulo/' + titulo_id]);
   }
 
 }
