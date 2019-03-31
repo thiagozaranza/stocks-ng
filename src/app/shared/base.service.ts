@@ -15,10 +15,11 @@ export class BaseService
 
     private callComponent = new Subject<any>();
     public callComponent$ = this.callComponent.asObservable();
-    public _limit: number;
+    public _limit;
     public _page: number;
     public _filters: object = {};
     public _with;
+    public _orderBy: string;
 
     constructor(protected http: HttpClient, protected globalApp: GlobalApp) { 
         
@@ -46,6 +47,12 @@ export class BaseService
         return this;
     }
 
+    noLimit(): BaseService
+    {
+        this._limit = 'no';
+        return this;
+    }
+
     with(valor): BaseService
     {
         this._with = valor;
@@ -64,25 +71,39 @@ export class BaseService
         return this;
     }
 
+    removeFilter(key: string) : BaseService
+    {
+        this._filters[key] = null;
+        return this;
+    }
+
+    orderBy(criteria: string) : BaseService
+    {
+        this._orderBy = criteria;
+        return this;
+    }
+
     makeQuery(): string
     {
         var query:string = '?';
 
         if (this._page)
-        query += '&page=' + this._page;
+            query += '&page=' + this._page;
 
         if (this._limit)
-        query += '&limit=' + this._limit;
+            query += '&limit=' + this._limit;
 
         for (const key in this._filters) {
 
-            if (this._filters[key].length == 0)
+            if (this._filters[key] == null || this._filters[key].length == 0)
                 continue;
 
-            if (isNaN(Number(this._filters[key])))
+            if (key == 'id')
+                query += '&id=' + this._filters[key];  
+            else if (isNaN(Number(this._filters[key])))
                 query += '&' + key + '-lk=' + this._filters[key];
             else
-                query += '&id=' + this._filters[key];        
+                query += '&' + key + '-eq=' + this._filters[key];  
         }
 
         if (isArray(this._with)) {
@@ -90,6 +111,9 @@ export class BaseService
         } else if (isString(this._with)) {
             query += '&with=' + this._with;
         }
+
+        if (this._orderBy)
+            query += '&orderBy=' + this._orderBy;
 
         return query;
     }

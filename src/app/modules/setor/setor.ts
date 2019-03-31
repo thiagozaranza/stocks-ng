@@ -9,3 +9,7 @@ export interface Setor {
     updated_at: string;
     updated_by: number;
 }
+
+export function isSetor(arg: any): arg is Setor {
+    return arg && arg.subsetores;
+}

@@ -98,7 +98,7 @@ export class IndexComponent implements OnInit
     {
         this.loading = true;
 
-        if (!isNull(event)) {
+        if (!isNull(event) && event) {
             this.service
                 .page(event.pageIndex + 1)
                 .limit(event.pageSize)

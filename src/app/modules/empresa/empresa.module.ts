@@ -25,13 +25,15 @@ import {
   MatCardModule,
   MatProgressBarModule
 } from '@angular/material';
+import { EmpresaSelectSetorialComponent } from './empresa-components/empresa-select-setorial/empresa-select-setorial.component';
 
 @NgModule({
   declarations: [
     EmpresaIndexComponent,
     EmpresaCreateComponent,
     EmpresaEditComponent,
-    EmpresaShowComponent],
+    EmpresaShowComponent,
+    EmpresaSelectSetorialComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
