@@ -23,7 +23,6 @@ export class SetorShowComponent extends ShowComponent implements OnInit {
     { 
         super();
         
-        this.resourceName = 'setor';
         this.id = Number(this.route.snapshot.paramMap.get("id"));
         this.setor = setorFactory.create();
     }

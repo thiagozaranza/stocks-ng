@@ -71,6 +71,12 @@ export class BaseService
         return this;
     }
 
+    setFilters(filters: object) : BaseService
+    {
+        this._filters = filters;
+        return this;
+    }
+
     removeFilter(key: string) : BaseService
     {
         this._filters[key] = null;
@@ -100,8 +106,12 @@ export class BaseService
 
             if (key == 'id')
                 query += '&id=' + this._filters[key];  
-            else if (isNaN(Number(this._filters[key])))
-                query += '&' + key + '-lk=' + this._filters[key];
+            else if (isNaN(Number(this._filters[key]))) {
+                if (key.endsWith('-eq'))
+                    query += '&' + key + '=' + this._filters[key];
+                else
+                    query += '&' + key + '-lk=' + this._filters[key];
+            }    
             else
                 query += '&' + key + '-eq=' + this._filters[key];  
         }

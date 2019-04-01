@@ -15,7 +15,6 @@ export class SubsetorIndexComponent extends IndexComponent implements OnInit  {
   { 
       super();
       
-      this.resourceName = 'subsetor';
       this.mainFieldFilterName = 'nome';
       this.displayedColumns = ['id', 'nome', 'setor', 'actions'];
       this.with = ['setor'];

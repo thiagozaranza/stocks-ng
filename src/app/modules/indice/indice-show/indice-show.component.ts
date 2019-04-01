@@ -22,7 +22,6 @@ export class IndiceShowComponent extends ShowComponent implements OnInit {
   { 
       super();
       
-      this.resourceName = 'indice';
       this.id = Number(this.route.snapshot.paramMap.get("id"));
       this.indice = indiceFactory.create();
   }

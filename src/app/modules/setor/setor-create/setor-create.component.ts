@@ -24,7 +24,6 @@ export class SetorCreateComponent extends CreateComponent implements OnInit {
     { 
         super();
 
-        this.resourceName = 'setor';
         this.setorForm = fb.group({  
             'nome' : [null, Validators.required]
         });

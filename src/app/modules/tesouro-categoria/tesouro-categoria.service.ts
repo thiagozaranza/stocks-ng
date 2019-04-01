@@ -6,5 +6,6 @@ import { BaseService } from 'src/app/shared/base.service';
 })
 export class TesouroCategoriaService extends BaseService
 {
-  urn = 'rest/tesouro-categoria';
+    public resource = 'tesouro-categoria';
+    public urn = 'rest/' + this.resource;
 }

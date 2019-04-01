@@ -22,7 +22,6 @@ export class AtivoShowComponent extends ShowComponent implements OnInit {
   { 
       super();
       
-      this.resourceName = 'indice';
       this.id = Number(this.route.snapshot.paramMap.get("id"));
       this.ativo = ativoFactory.create();
       this.empresa = empresaFactory.create();

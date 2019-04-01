@@ -20,7 +20,6 @@ export class SetorIndexComponent extends IndexComponent implements OnInit  {
     { 
         super();
         
-        this.resourceName = 'setor';
         this.mainFieldFilterName = 'nome';
         this.displayedColumns = ['id', 'nome', 'actions'];
         this.deleteConfirmComponent = SetorDeleteConfirmComponent;

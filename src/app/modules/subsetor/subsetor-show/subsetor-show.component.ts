@@ -22,7 +22,6 @@ export class SubsetorShowComponent extends ShowComponent implements OnInit {
   { 
       super();
       
-      this.resourceName = 'setor';
       this.id = Number(this.route.snapshot.paramMap.get("id"));
       this.subsetor = subsetorFactory.create();
   }

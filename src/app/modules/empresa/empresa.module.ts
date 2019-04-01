@@ -26,6 +26,8 @@ import {
   MatProgressBarModule
 } from '@angular/material';
 import { EmpresaSelectSetorialComponent } from './empresa-components/empresa-select-setorial/empresa-select-setorial.component';
+import { EmpresaGridComponent } from './empresa-components/empresa-grid/empresa-grid.component';
+import { EmpresaFilterComponent } from './empresa-components/empresa-filter/empresa-filter.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { EmpresaSelectSetorialComponent } from './empresa-components/empresa-sel
     EmpresaCreateComponent,
     EmpresaEditComponent,
     EmpresaShowComponent,
-    EmpresaSelectSetorialComponent],
+    EmpresaSelectSetorialComponent,
+    EmpresaGridComponent,
+    EmpresaFilterComponent],
   imports: [
     CommonModule,
     MatToolbarModule,

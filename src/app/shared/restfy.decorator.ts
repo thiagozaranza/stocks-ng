@@ -5,7 +5,7 @@ export function Restfy(): ClassDecorator
     return function ( constructor : any ) 
     {
         constructor.prototype.root = function () {
-            this.router.navigate(['/' + this.resourceName]);       
+            this.router.navigate(['/' + this.service.reource]);       
         }
 
         constructor.prototype.list = function () {
@@ -13,13 +13,16 @@ export function Restfy(): ClassDecorator
                 if ( typeof this['onListSuccess'] === 'function')
                     this['onListSuccess'](response);
             }, (error: HttpErrorResponse) => {
+                if (error.status == 401)
+                    this.router.navigate(['/logout']);
+
                 if ( typeof this['onListError'] === 'function')
                     this['onListError'](error);
             });      
         }
 
         constructor.prototype.create = function () {
-            this.router.navigate(['/' + this.resourceName + '/create']);       
+            this.router.navigate(['/' + this.service.reource + '/create']);       
         }
 
         constructor.prototype.store = function (body) {
@@ -33,7 +36,7 @@ export function Restfy(): ClassDecorator
         }
 
         constructor.prototype.show = function (id: number) {
-            this.router.navigate(['/' + this.resourceName + '/' + id]);       
+            this.router.navigate(['/' + this.service.reource + '/' + id]);       
         }
 
         constructor.prototype.pick = function (id: number) {
@@ -47,7 +50,7 @@ export function Restfy(): ClassDecorator
         }
 
         constructor.prototype.edit = function (id: number) {
-            this.router.navigate(['/' + this.resourceName + '/' + id + '/edit']);       
+            this.router.navigate(['/' + this.service.reource + '/' + id + '/edit']);       
         }
 
         constructor.prototype.save = function (id: number, body) {

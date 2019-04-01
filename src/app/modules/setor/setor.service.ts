@@ -2,5 +2,6 @@ import { BaseService } from 'src/app/shared/base.service';
 
 export class SetorService extends BaseService
 {
-  urn = 'rest/setor';
+    public resource = 'setor';
+    public urn = 'rest/' + this.resource;
 }

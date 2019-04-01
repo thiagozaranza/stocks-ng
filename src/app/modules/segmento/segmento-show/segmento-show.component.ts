@@ -25,7 +25,6 @@ export class SegmentoShowComponent extends ShowComponent implements OnInit {
   { 
       super();
       
-      this.resourceName = 'segmento';
       this.id = Number(this.route.snapshot.paramMap.get("id"));
       this.segmento = segmentoFactory.create();
       this.subsetor = subsetorFactory.create();

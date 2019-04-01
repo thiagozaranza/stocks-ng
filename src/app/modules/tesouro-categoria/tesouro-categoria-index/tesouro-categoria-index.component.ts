@@ -16,7 +16,6 @@ export class TesouroCategoriaIndexComponent extends IndexComponent implements On
   { 
       super();
       
-      this.resourceName = 'tesouro-categoria';
       this.mainFieldFilterName = 'nome';
       this.displayedColumns = ['id', 'nome', 'actions'];
   }

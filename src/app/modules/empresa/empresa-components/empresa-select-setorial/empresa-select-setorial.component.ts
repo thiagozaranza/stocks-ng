@@ -74,7 +74,7 @@ export class EmpresaSelectSetorialComponent implements OnInit {
             });
 
         }, (error) => {
-            
+            console.log(error);
         });
 
         this.setoresOptions = this.setores;

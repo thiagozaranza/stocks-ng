@@ -25,7 +25,6 @@ export class TesouroTipoShowComponent extends ShowComponent implements OnInit {
   { 
       super();
       
-      this.resourceName = 'tesouro-categoria';
       this.id = Number(this.route.snapshot.paramMap.get("id"));
       this.tipo = tesouroTipoFactory.create();
       this.categoria = tesouroCategoriaFactory.create();

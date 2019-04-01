@@ -15,7 +15,6 @@ export class TesouroTipoIndexComponent extends IndexComponent implements OnInit 
   { 
       super();
       
-      this.resourceName = 'tesouro-tipo';
       this.mainFieldFilterName = 'nome';
       this.displayedColumns = ['id', 'codigo', 'nome', 'categoria', 'actions'];
       this.with = ['categoria']

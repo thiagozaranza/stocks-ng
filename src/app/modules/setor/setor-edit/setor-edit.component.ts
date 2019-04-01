@@ -29,7 +29,6 @@ export class SetorEditComponent extends EditComponent implements OnInit
     {
         super();
 
-        this.resourceName = 'setor';
         this.setorForm = fb.group({  
             'nome' : [null, Validators.required]
         });

@@ -7,5 +7,6 @@ import { BaseService } from 'src/app/shared/base.service';
 
 export class EmpresaService extends BaseService
 {
-    urn = 'rest/empresa';
+    public resource = 'empresa';
+    public urn = 'rest/' + this.resource;
 }

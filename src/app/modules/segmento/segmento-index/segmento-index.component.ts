@@ -16,7 +16,6 @@ export class SegmentoIndexComponent extends IndexComponent implements OnInit  {
   { 
       super();
       
-      this.resourceName = 'segmento';
       this.mainFieldFilterName = 'nome';
       this.displayedColumns = ['id', 'nome', 'subsetor', 'actions'];
       this.with = ['subsetor'];

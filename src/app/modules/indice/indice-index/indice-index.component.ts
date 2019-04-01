@@ -16,7 +16,6 @@ export class IndiceIndexComponent extends IndexComponent implements OnInit  {
     { 
         super();
         
-        this.resourceName = 'indice';
         this.mainFieldFilterName = 'nome';
         this.displayedColumns = ['id', 'nome', 'titulo', 'actions'];
     }

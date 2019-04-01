@@ -15,7 +15,6 @@ export class AtivoIndexComponent extends IndexComponent implements OnInit  {
   { 
       super();
       
-      this.resourceName = 'ativo';
       this.mainFieldFilterName = 'nome';
       this.displayedColumns = ['id', 'codigo', 'empresa',  'actions'];
       this.with = ['empresa'];
