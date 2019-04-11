@@ -7,7 +7,7 @@ import { isNull } from 'util';
 
 export class GridComponent implements OnInit
 {    
-    public service;
+    protected service;
 
     public dataSource = new MatTableDataSource();
 
@@ -71,5 +71,11 @@ export class GridComponent implements OnInit
             console.log(sort.direction);
             return;
         } 
+    }
+
+    public filter(filters) 
+    {
+        this.service.setFilters(filters).page(1);
+        this.getServerData();
     }
 }

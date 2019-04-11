@@ -4,10 +4,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmpresaModule } from './modules/empresa/empresa.module';
-import { SetorModule } from './modules/setor/setor.module';
-import { SubsetorModule } from './modules/subsetor/subsetor.module';
-import { SegmentoModule } from './modules/segmento/segmento.module';
 import { LayoutModule } from './modules/layout/layout.module'; 
 import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { GlobalApp } from './shared/global';
@@ -15,10 +11,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PagesModule } from './modules/pages/pages.module';
-import { IndiceModule } from './modules/indice/indice.module';
 import { AtivoModule } from './modules/ativo/ativo.module';
-import { TesouroCategoriaModule } from './modules/tesouro-categoria/tesouro-categoria.module';
-import { TesouroTipoModule } from './modules/tesouro-tipo/tesouro-tipo.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -34,14 +27,14 @@ export function tokenGetter() {
     AppRoutingModule,
     FlexLayoutModule,
     LayoutModule,
-    EmpresaModule,
-    SetorModule,
-    SubsetorModule,
-    SegmentoModule,
-    IndiceModule,
+    // EmpresaModule,
+    // SetorModule,
+    // SubsetorModule,
+    // SegmentoModule,
+    // IndiceModule,
     AtivoModule,
-    TesouroCategoriaModule,
-    TesouroTipoModule,
+    // TesouroCategoriaModule,
+    // TesouroTipoModule,
     PagesModule,
     AuthModule,
     HttpClientModule,

@@ -1,0 +1,20 @@
+<form onsubmit="return false;">
+  <mat-grid-list cols="12" rowHeight="80px">
+    <mat-grid-tile colspan=6>    
+      <mat-form-field>
+        <input matInput (keyup)="filterByNome($event.target.value)" (keydown)="onKeydown($event)" #filterNome placeholder="Indice">
+      </mat-form-field>        
+    </mat-grid-tile>     
+    <mat-grid-tile colspan=6>
+        <span class="fill-space"></span>
+        <div class="button-row">
+          <button mat-raised-button color="primary" (click)="list()">
+              <mat-icon>filter_list</mat-icon>Filtrar
+          </button>
+          <button mat-raised-button color="default" (click)="clean()">
+            <mat-icon>refresh</mat-icon>Limpar
+          </button>
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>    
+</form>

@@ -25,9 +25,11 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtivoService } from './ativo.service';
+import { AtivoGridComponent } from './ativo-components/ativo-grid/ativo-grid.component';
+import { AtivoFilterComponent } from './ativo-components/ativo-filter/ativo-filter.component';
 
 @NgModule({
-  declarations: [AtivoIndexComponent, AtivoShowComponent],
+  declarations: [AtivoIndexComponent, AtivoShowComponent, AtivoGridComponent, AtivoFilterComponent],
   imports: [
     CommonModule,
     FormsModule,

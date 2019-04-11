@@ -3,33 +3,28 @@ import { IndexComponent } from 'src/app/shared/components/crud/index-component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AtivoService } from '../ativo.service';
+import { AtivoGridComponent } from '../ativo-components/ativo-grid/ativo-grid.component';
+import { AtivoFilterComponent } from '../ativo-components/ativo-filter/ativo-filter.component';
 
 @Component({
-  selector: 'app-ativo-index',
-  templateUrl: './ativo-index.component.html',
-  styleUrls: ['./ativo-index.component.scss']
+    selector: 'app-ativo-index',
+    templateUrl: './ativo-index.component.html',
+    styleUrls: ['./ativo-index.component.scss']
 })
-export class AtivoIndexComponent extends IndexComponent implements OnInit  {
+export class AtivoIndexComponent extends IndexComponent implements OnInit {
 
-  constructor(protected router: Router, protected service: AtivoService, protected dialog: MatDialog) 
-  { 
-      super();
-      
-      this.mainFieldFilterName = 'nome';
-      this.displayedColumns = ['id', 'codigo', 'empresa',  'actions'];
-      this.with = ['empresa'];
-  }
+    @ViewChild('gridAtivos') grid: AtivoGridComponent;
+    @ViewChild('filterAtivos') filter: AtivoFilterComponent;
 
-  @ViewChild('filterNome') filter_nome:ElementRef;
+    constructor(protected router: Router, protected service: AtivoService, protected dialog: MatDialog) 
+    { 
+        super();
+    }
 
-  onDeleteSuccess(response) 
-  {
-      this.clean();
-  }
-
-  ngOnInit() 
-  {
-      super.ngOnInit()
-  }
-
+    ngOnInit(): void
+    {
+        this.filter.callComponentFilter$.subscribe((filters) => {
+            this.grid.filter(filters);
+        });
+    }
 }
