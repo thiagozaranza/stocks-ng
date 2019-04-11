@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IndexComponent } from 'src/app/shared/components/crud/index-component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
@@ -11,7 +11,7 @@ import { AtivoFilterComponent } from '../ativo-components/ativo-filter/ativo-fil
     templateUrl: './ativo-index.component.html',
     styleUrls: ['./ativo-index.component.scss']
 })
-export class AtivoIndexComponent extends IndexComponent implements OnInit {
+export class AtivoIndexComponent extends IndexComponent {
 
     @ViewChild('gridAtivos') grid: AtivoGridComponent;
     @ViewChild('filterAtivos') filter: AtivoFilterComponent;
@@ -19,12 +19,5 @@ export class AtivoIndexComponent extends IndexComponent implements OnInit {
     constructor(protected router: Router, protected service: AtivoService, protected dialog: MatDialog) 
     { 
         super();
-    }
-
-    ngOnInit(): void
-    {
-        this.filter.callComponentFilter$.subscribe((filters) => {
-            this.grid.filter(filters);
-        });
     }
 }

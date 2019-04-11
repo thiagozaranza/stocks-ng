@@ -5,7 +5,7 @@ export function Restfy(): ClassDecorator
     return function ( constructor : any ) 
     {
         constructor.prototype.root = function () {
-            this.router.navigate(['/' + this.service.reource]);       
+            this.router.navigate(['/' + this.service.resource]);       
         }
 
         constructor.prototype.list = function () {
@@ -22,7 +22,7 @@ export function Restfy(): ClassDecorator
         }
 
         constructor.prototype.create = function () {
-            this.router.navigate(['/' + this.service.reource + '/create']);       
+            this.router.navigate(['/' + this.service.resource + '/create']);       
         }
 
         constructor.prototype.store = function (body) {
@@ -36,7 +36,7 @@ export function Restfy(): ClassDecorator
         }
 
         constructor.prototype.show = function (id: number) {
-            this.router.navigate(['/' + this.service.reource + '/' + id]);       
+            this.router.navigate(['/' + this.service.resource + '/' + id]);       
         }
 
         constructor.prototype.pick = function (id: number) {
@@ -50,7 +50,7 @@ export function Restfy(): ClassDecorator
         }
 
         constructor.prototype.edit = function (id: number) {
-            this.router.navigate(['/' + this.service.reource + '/' + id + '/edit']);       
+            this.router.navigate(['/' + this.service.resource + '/' + id + '/edit']);       
         }
 
         constructor.prototype.save = function (id: number, body) {

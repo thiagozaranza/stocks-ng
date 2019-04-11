@@ -17,13 +17,11 @@ export class IndexComponent implements OnInit
     grid: GridComponent;
     filter: FilterComponent;
 
-    constructor() { 
-        
-    }
-
     ngOnInit() 
     {
-        
+        this.filter.callComponentFilter$.subscribe((filters) => {
+            this.grid.filter(filters);
+        });
     }
 
     destroy(id: number): void

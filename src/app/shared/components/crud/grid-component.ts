@@ -8,6 +8,7 @@ import { isNull } from 'util';
 export class GridComponent implements OnInit
 {    
     protected service;
+    protected router;
 
     public dataSource = new MatTableDataSource();
 

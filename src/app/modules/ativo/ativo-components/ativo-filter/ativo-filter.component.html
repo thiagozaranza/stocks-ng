@@ -2,13 +2,13 @@
   <mat-grid-list cols="12" rowHeight="80px">
     <mat-grid-tile colspan=6>    
       <mat-form-field>
-        <input matInput (keyup)="filterByNome($event.target.value)" (keydown)="onKeydown($event)" #filterNome placeholder="Indice">
+        <input matInput (keyup)="filterByNome($event.target.value)" (keydown)="onKeydown($event)" #mainFilter placeholder="Código" name="codigo">
       </mat-form-field>        
     </mat-grid-tile>     
     <mat-grid-tile colspan=6>
         <span class="fill-space"></span>
         <div class="button-row">
-          <button mat-raised-button color="primary" (click)="list()">
+          <button mat-raised-button color="primary" (click)="filter()">
               <mat-icon>filter_list</mat-icon>Filtrar
           </button>
           <button mat-raised-button color="default" (click)="clean()">

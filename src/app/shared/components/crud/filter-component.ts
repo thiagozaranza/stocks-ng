@@ -8,33 +8,33 @@ export class FilterComponent implements OnInit
     private callComponentFilter = new Subject<any>();
     public  callComponentFilter$ = this.callComponentFilter.asObservable();
 
-    @ViewChild('filterNome') filter_nome:ElementRef;
+    @ViewChild('mainFilter') main_filter:ElementRef;
 
     ngOnInit(): void
     {
-        this.filter_nome.nativeElement.focus();
+        this.main_filter.nativeElement.focus();
     }    
 
     filterByNome(filterValue: string): void 
     {
-        let nome = filterValue.trim().toLowerCase();
+        var field_name = (this.main_filter.nativeElement.name)? this.main_filter.nativeElement.name: 'nome';
 
-        this.filters['nome'] = nome;
+        this.filters[field_name] = filterValue.trim().toLowerCase();
     }
    
     onKeydown(event) {
-        if (event.key === "Enter") {
+        if (event.key === "Enter") { 
             this.filter();
         } else if (event.which === 27) {
-            this.filter_nome.nativeElement.value = '';
+            this.main_filter.nativeElement.value = '';
             this.clean();
         }
     }
 
     public clean(): void 
     {
-        this.filter_nome.nativeElement.value = '';
-        this.filter_nome.nativeElement.focus();
+        this.main_filter.nativeElement.value = '';
+        this.main_filter.nativeElement.focus();
     }
 
     public filter(): void

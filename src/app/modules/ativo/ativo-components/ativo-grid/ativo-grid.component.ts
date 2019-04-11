@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridComponent } from 'src/app/shared/components/crud/grid-component';
 import { AtivoService } from '../../ativo.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-ativo-grid',
@@ -9,7 +10,7 @@ import { AtivoService } from '../../ativo.service';
 })
 export class AtivoGridComponent  extends GridComponent {
 
-    constructor(protected service: AtivoService) 
+    constructor(protected router: Router, protected service: AtivoService) 
     { 
         super();
         this.displayedColumns = ['id', 'codigo', 'empresa',  'actions'];
