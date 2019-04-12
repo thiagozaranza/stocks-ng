@@ -23,27 +23,7 @@ export class IndexComponent implements OnInit
             this.grid.filter(filters);
         });
     }
-
-    destroy(id: number): void
-    {
-        this.service.destroy(id, (response) => {
-            //this.dataSource.data = response.data;
-        });
-    }
-
-    confirmDelete(id: number): void
-    {
-        const dialogRef = this.dialog.open(this.deleteConfirmComponent, {
-            width: '400px',
-            data: {id: id}
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            if (result === true)
-                this.destroy(id);      
-        });
-    }
-
+    
     clean () 
     {
         this.filter.clean();

@@ -1,9 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { GlobalApp } from '../shared/global';
-import { Subject, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { isArray, isString } from 'util';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,8 @@ import { isArray, isString } from 'util';
 
 export class BaseService 
 {
-    urn = '';
+    protected urn = '';
+    protected resource = '';
 
     private callComponent = new Subject<any>();
     public callComponent$ = this.callComponent.asObservable();
@@ -21,7 +22,7 @@ export class BaseService
     public _with;
     public _orderBy: string;
 
-    constructor(protected http: HttpClient, protected globalApp: GlobalApp) { 
+    constructor(private router: Router, protected http: HttpClient, protected globalApp: GlobalApp) { 
         
     }
 
@@ -151,5 +152,10 @@ export class BaseService
     public save(id, body, callback, errorHandler): void
     {
         this.http.put(this.globalApp.base_url + this.urn + '/' + id, body).subscribe(callback, errorHandler);    
+    }
+
+    public edit(id: number): void
+    {
+        this.router.navigate(['/' + this.resource + '/' + id + '/edit']);       
     }
 }

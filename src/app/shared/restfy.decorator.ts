@@ -62,15 +62,5 @@ export function Restfy(): ClassDecorator
                     this['onSaveError'](error);
             });      
         }
-
-        constructor.prototype.destroy = function (id: number) {
-            this.service.destroy(id, (response) => {
-                if ( typeof this['onDeleteSuccess'] === 'function')
-                    this['onDeleteSuccess'](response);
-            }, (error: HttpErrorResponse) => {
-                if ( typeof this['onDeleteError'] === 'function')
-                    this['onDeleteError'](error);
-            });      
-        }
     }
 }

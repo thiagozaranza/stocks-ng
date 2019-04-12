@@ -14,10 +14,6 @@ import { SetorIndexComponent } from './modules/setor/setor-index/setor-index.com
 import { SetorCreateComponent } from './modules/setor/setor-create/setor-create.component';
 import { SetorShowComponent } from './modules/setor/setor-show/setor-show.component';
 import { SetorEditComponent } from './modules/setor/setor-edit/setor-edit.component';
-import { SubsetorIndexComponent } from './modules/subsetor/subsetor-index/subsetor-index.component';
-import { SubsetorShowComponent } from './modules/subsetor/subsetor-show/subsetor-show.component';
-import { SegmentoIndexComponent } from './modules/segmento/segmento-index/segmento-index.component';
-import { SegmentoShowComponent } from './modules/segmento/segmento-show/segmento-show.component';
 
 const routes: Routes = [
   {
@@ -49,11 +45,11 @@ const routes: Routes = [
       { path: 'setor/:id'         , component: SetorShowComponent, canActivate: [AuthGuard] }, 
       { path: 'setor/:id/edit'    , component: SetorEditComponent, canActivate: [AuthGuard] }, 
 
-      { path: 'subsetor'          , component: SubsetorIndexComponent, canActivate: [AuthGuard] }, 
-      { path: 'subsetor/:id'      , component: SubsetorShowComponent, canActivate: [AuthGuard] }, 
+      // { path: 'subsetor'          , component: SubsetorIndexComponent, canActivate: [AuthGuard] }, 
+      // { path: 'subsetor/:id'      , component: SubsetorShowComponent, canActivate: [AuthGuard] }, 
 
-      { path: 'segmento'          , component: SegmentoIndexComponent, canActivate: [AuthGuard] }, 
-      { path: 'segmento/:id'      , component: SegmentoShowComponent, canActivate: [AuthGuard] },
+      // { path: 'segmento'          , component: SegmentoIndexComponent, canActivate: [AuthGuard] }, 
+      // { path: 'segmento/:id'      , component: SegmentoShowComponent, canActivate: [AuthGuard] },
       
       // { path: 'indice'            , component: IndiceIndexComponent, canActivate: [AuthGuard] }, 
       // { path: 'indice/:id'        , component: IndiceShowComponent, canActivate: [AuthGuard] },

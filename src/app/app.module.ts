@@ -13,8 +13,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { PagesModule } from './modules/pages/pages.module';
 import { AtivoModule } from './modules/ativo/ativo.module';
 import { SetorModule } from './modules/setor/setor.module';
-import { SubsetorModule } from './modules/subsetor/subsetor.module';
-import { SegmentoModule } from './modules/segmento/segmento.module';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -23,7 +21,7 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,8 +30,8 @@ export function tokenGetter() {
     LayoutModule,
     // EmpresaModule,
     SetorModule,
-    SubsetorModule,
-    SegmentoModule,
+    // SubsetorModule,
+    // SegmentoModule,
     // IndiceModule,
     AtivoModule,
     // TesouroCategoriaModule,

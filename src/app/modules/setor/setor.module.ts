@@ -29,11 +29,12 @@ import { SetorCreateComponent } from './setor-create/setor-create.component';
 import { SetorService } from './setor.service';
 import { SetorShowComponent } from './setor-show/setor-show.component';
 import { SetorEditComponent } from './setor-edit/setor-edit.component';
-import { SetorDeleteConfirmComponent } from './setor-delete-confirm/setor-delete-confirm.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AlertComponent } from 'src/app/modules/layout/alert/alert.component';
 import { SetorGridComponent } from './setor-components/setor-grid/setor-grid.component';
 import { SetorFilterComponent } from './setor-components/setor-filter/setor-filter.component';
+import { DeleteConfirmComponent } from 'src/app/shared/components/crud/delete-confirm/delete-confirm.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,11 +42,14 @@ import { SetorFilterComponent } from './setor-components/setor-filter/setor-filt
     SetorCreateComponent, 
     SetorShowComponent, 
     SetorEditComponent, 
-    SetorDeleteConfirmComponent, SetorGridComponent, SetorFilterComponent
+    DeleteConfirmComponent, 
+    SetorGridComponent,
+    SetorFilterComponent
   ],
   imports: [
     CommonModule,
     LayoutModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -69,8 +73,9 @@ import { SetorFilterComponent } from './setor-components/setor-filter/setor-filt
     MatProgressBarModule
   ],
   entryComponents: [
-    SetorDeleteConfirmComponent,
-    AlertComponent
+
+    AlertComponent,
+    DeleteConfirmComponent
   ],
   providers: [
     SetorService

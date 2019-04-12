@@ -1,9 +1,9 @@
-import { Subsetor } from '../subsetor/subsetor';
+//import { Subsetor } from '../subsetor/subsetor';
 
 export interface Setor {
     id: number;
     nome: string;
-    subsetores: Subsetor[];
+    subsetores: object; //Subsetor[];
     created_at: string;
     created_by: number;
     updated_at: string;

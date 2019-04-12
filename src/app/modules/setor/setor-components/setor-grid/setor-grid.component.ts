@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GridComponent } from 'src/app/shared/components/crud/grid-component';
-import { Router } from '@angular/router';
+
 import { SetorService } from '../../setor.service';
 
 @Component({
@@ -10,10 +10,9 @@ import { SetorService } from '../../setor.service';
 })
 export class SetorGridComponent extends GridComponent {
 
-    constructor(protected router: Router, protected service: SetorService) 
+    constructor(public service: SetorService) 
     {
         super();
-
         this.displayedColumns = ['id', 'nome', 'actions'];
     }
 }
