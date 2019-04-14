@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { SetorService } from '../setor.service';
-import { Router } from '@angular/router';
-import { CreateComponent } from 'src/app/shared/components/crud/create-component';
-import { Restfy } from 'src/app/shared/restfy.decorator';
-import { FormBuilder, FormGroup, Validators ,NgForm } from '@angular/forms';  
+import { Component, ViewChild } from '@angular/core';
+import { GenericCreateComponent } from 'src/app/shared/generics/generic-create.component';
 import { MatDialog } from '@angular/material';
+
+import { Setor } from '../setor';
+import { SetorService } from '../setor.service';
+import { SetorFormComponent } from '../setor-components/setor-form/setor-form.component';
+import * as setorFactory from '../setor.factory';
 
 @Component({
   selector: 'app-setor-create',
@@ -12,31 +13,15 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./setor-create.component.scss']
 })
 
-@Restfy()
+export class SetorCreateComponent extends GenericCreateComponent {
 
-export class SetorCreateComponent extends CreateComponent implements OnInit {
+    protected element: Setor;
 
-    setorForm: FormGroup; 
+    @ViewChild('formSetor') form: SetorFormComponent;
 
-    nome:string='';
-
-    constructor(private router: Router, protected service: SetorService, private fb: FormBuilder, protected dialog: MatDialog) 
+    constructor(protected service: SetorService, protected dialog: MatDialog) 
     { 
         super();
-
-        this.setorForm = fb.group({  
-            'nome' : [null, Validators.required]
-        });
+        this.element = setorFactory.create();
     }
-
-    @ViewChild('formNome') form_nome:ElementRef;
-
-    ngOnInit() {
-        this.form_nome.nativeElement.focus();
-    }
-
-    onFormSubmit(form:NgForm)  
-    {  
-        this['store'](form);  
-    }  
 }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { FilterComponent } from 'src/app/shared/components/crud/filter-component';
+import { GenericFilterComponent } from 'src/app/shared/generics/generic-filter.component';
 
 @Component({
     selector: 'app-setor-filter',
     templateUrl: './setor-filter.component.html',
     styleUrls: ['./setor-filter.component.scss']
 })
-export class SetorFilterComponent extends FilterComponent {
+export class SetorFilterComponent extends GenericFilterComponent {
 
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MatTableDataSource } from '@angular/material'; 
 import { SetorService } from '../setor.service';
 import * as setorFactory from '../setor.factory';
 import { Setor } from '../setor';
-import { ShowComponent } from 'src/app/shared/components/crud/show-component';
+import { GenericShowComponent } from 'src/app/shared/generics/generic-show.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
     selector: 'app-setor-show',
@@ -12,34 +12,18 @@ import { ShowComponent } from 'src/app/shared/components/crud/show-component';
     styleUrls: ['./setor-show.component.scss']
 })
 
-export class SetorShowComponent extends ShowComponent implements OnInit {
+export class SetorShowComponent extends GenericShowComponent implements OnInit {
 
-    private setor: Setor;
+    protected element: Setor;
 
-    public displayedSubsetoresColumns: string[] = ['id', 'nome', 'actions'];
-    public dataSourceSubsetores = new MatTableDataSource();
-
-    constructor(public router: Router, private route: ActivatedRoute, protected service: SetorService) 
+    constructor(protected service: SetorService, protected route: ActivatedRoute, protected dialog: MatDialog) 
     { 
         super();
-        
-        this.id = Number(this.route.snapshot.paramMap.get("id"));
-        this.setor = setorFactory.create();
+        this.element = setorFactory.create();
     }
 
     ngOnInit() 
     {
         super.ngOnInit();
-    }
-
-    onPickSuccess(response)
-    {
-        this.setor = response.data;
-        this.dataSourceSubsetores = response.data.subsetores;
-    }
- 
-    showSubsetor(subsetor_id: number): void
-    {
-        this.router.navigate(['/subsetor/' + subsetor_id]);
     }
 }

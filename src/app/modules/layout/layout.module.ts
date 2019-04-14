@@ -4,7 +4,6 @@ import { AppRoutingModule } from './../../app-routing.module';
 import { RootComponent }            from './root/root.component';
 import { NavigationComponent }      from './navigation/navigation.component';
 import { FooterComponent }          from './footer/footer.component';
-import { HeaderComponent }          from './header/header.component';
 import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import {
   MatToolbarModule,
@@ -13,14 +12,12 @@ import {
   MatIconModule,
   MatDialogModule
 } from '@angular/material';
-import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     RootComponent,    
     NavigationComponent, 
     FooterComponent, 
-    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +30,6 @@ import { AlertComponent } from './alert/alert.component';
     MatDialogModule
   ],
   exports: [
-    AlertComponent
   ]
 })
 export class LayoutModule { }

@@ -16,7 +16,7 @@
     <th mat-header-cell *matHeaderCellDef width="170"> Ações </th>
     <td mat-cell *matCellDef="let element">
       <div class="button-row">
-        <button mat-mini-fab color="default" (click)="show(element.id)"><mat-icon>launch</mat-icon></button>
+        <app-show-button   [service]="service" [element]="element"></app-show-button>
         <app-edit-button   [service]="service" [element]="element"></app-edit-button>
         <app-delete-button [service]="service" [element]="element"></app-delete-button>
       </div>

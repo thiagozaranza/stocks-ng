@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IndexComponent } from 'src/app/shared/components/crud/index-component';
+import { GenericIndexComponent } from 'src/app/shared/generics/generic-index.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AtivoService } from '../ativo.service';
@@ -11,8 +11,8 @@ import { AtivoFilterComponent } from '../ativo-components/ativo-filter/ativo-fil
     templateUrl: './ativo-index.component.html',
     styleUrls: ['./ativo-index.component.scss']
 })
-export class AtivoIndexComponent extends IndexComponent {
-
+export class AtivoIndexComponent extends GenericIndexComponent
+{
     @ViewChild('gridAtivos') grid: AtivoGridComponent;
     @ViewChild('filterAtivos') filter: AtivoFilterComponent;
 

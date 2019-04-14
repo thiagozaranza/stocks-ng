@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FilterComponent } from 'src/app/shared/components/crud/filter-component';
+import { Component } from '@angular/core';
+import { GenericFilterComponent } from 'src/app/shared/generics/generic-filter.component';
 
 @Component({
     selector: 'app-ativo-filter',
     templateUrl: './ativo-filter.component.html',
     styleUrls: ['./ativo-filter.component.scss']
 })
-export class AtivoFilterComponent extends FilterComponent 
+export class AtivoFilterComponent extends GenericFilterComponent
 {
 
 }

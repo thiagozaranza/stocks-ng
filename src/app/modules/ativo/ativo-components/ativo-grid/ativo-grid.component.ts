@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GridComponent } from 'src/app/shared/components/crud/grid-component';
+import { Component } from '@angular/core';
+import { GenericGridComponent } from 'src/app/shared/generics/generic-grid.component';
 import { AtivoService } from '../../ativo.service';
 import { Router } from '@angular/router';
 
@@ -8,13 +8,12 @@ import { Router } from '@angular/router';
     templateUrl: './ativo-grid.component.html',
     styleUrls: ['./ativo-grid.component.scss']
 })
-export class AtivoGridComponent  extends GridComponent {
-
+export class AtivoGridComponent extends GenericGridComponent 
+{
     constructor(protected router: Router, protected service: AtivoService) 
     { 
         super();
         this.displayedColumns = ['id', 'codigo', 'empresa',  'actions'];
         this.with = ['empresa'];
     }
-
 }

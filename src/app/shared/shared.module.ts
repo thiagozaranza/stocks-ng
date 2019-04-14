@@ -1,17 +1,33 @@
 import { NgModule } from '@angular/core';
 
-import { DeleteButtonComponent } from './components/crud/delete-button/delete-button.component';
-import { MatIconModule, MatButtonModule } from '@angular/material';
-import { EditButtonComponent } from './components/crud/edit-button/edit-button.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
+import { MatIconModule, MatButtonModule, MatDialogModule, MatToolbarModule } from '@angular/material';
+import { EditButtonComponent } from './components/edit-button/edit-button.component';
+import { ShowButtonComponent } from './components/show-button/show-button.component';
+import { DeleteConfirmComponent } from './components/delete-confirm/delete-confirm.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { CommonModule } from '@angular/common';
+import { CreateButtonComponent } from './components/create-button/create-button.component';
+import { ModuleNavigationComponent } from './components/module-navigation/module-navigation.component';
+import { IndexButtonComponent } from './components/index-button/index-button.component';
 
 @NgModule({
     declarations: [
+        AlertComponent,
         DeleteButtonComponent,
-        EditButtonComponent
+        DeleteConfirmComponent,
+        EditButtonComponent,
+        ShowButtonComponent,
+        CreateButtonComponent,
+        ModuleNavigationComponent,
+        IndexButtonComponent
     ],
     imports: [
+        CommonModule,
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        MatDialogModule,
+        MatToolbarModule
     ],
     entryComponents: [
 
@@ -21,7 +37,10 @@ import { EditButtonComponent } from './components/crud/edit-button/edit-button.c
     ],
     exports: [
         DeleteButtonComponent,
-        EditButtonComponent
+        EditButtonComponent,
+        ShowButtonComponent,
+        CreateButtonComponent,
+        ModuleNavigationComponent
     ]
 })
 export class SharedModule { }

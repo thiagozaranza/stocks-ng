@@ -1,0 +1,4 @@
+<button *ngIf="type == 1" mat-button        color="primary" (click)="edit()" style="padding: 0px 10px; min-width: 40px;"><mat-icon>edit</mat-icon>{{text}}</button>
+<button *ngIf="type == 2" mat-raised-button color="primary" (click)="edit()"><mat-icon>edit</mat-icon>{{text}}</button>
+<button *ngIf="type == 3" mat-fab           color="primary" (click)="edit()"><mat-icon>edit</mat-icon>{{text}}</button>
+<button *ngIf="type == 4" mat-mini-fab      color="primary" (click)="edit()"><mat-icon>edit</mat-icon>{{text}}</button>

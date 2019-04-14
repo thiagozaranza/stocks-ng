@@ -9,7 +9,6 @@ body {
 
 mat-form-field {
     width: 100%;
-    padding: 10px;
 }
 
 .title {
@@ -22,9 +21,8 @@ mat-form-field {
 }
 
 .container {
-    width: 1170px;
-    padding-right: 15px;
-    padding-left: 15px;
+    //width: 1170px;
+    padding: 20px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -49,13 +47,9 @@ mat-toolbar-row {
     z-index: 1;
 }
 
-mat-form-field {
-    width: 100%;
-    padding: 10px;
-}
 
 form {
-    padding: 20px;
+    padding: 0px 10px;
 }
 
 table {

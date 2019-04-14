@@ -1,17 +1,4 @@
-<mat-toolbar color="secundary" class="mat-elevation-z2">    
-  <mat-toolbar-row>
-    <div class="container">
-      <div style="display: inline;">
-        <span class="title">Setores | Consultar</span>  
-      </div>
-      <div class="button-row" style="display: inline;">
-        <button mat-fab class="add-button" (click)="create()">
-          <mat-icon aria-label="Cadastrar Setor">add</mat-icon>
-        </button>
-      </div>
-    </div> 
-  </mat-toolbar-row>    
-</mat-toolbar>
+<app-module-navigation [service]="service" [title]="'Setores | Consultar'" [actions]="['create']"></app-module-navigation>
 
 <div class="container">
   <app-setor-filter #filterSetores></app-setor-filter>  

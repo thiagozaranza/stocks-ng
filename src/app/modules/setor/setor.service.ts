@@ -1,4 +1,4 @@
-import { BaseService } from 'src/app/shared/base.service';
+import { BaseService } from 'src/app/shared/services/base.service';
 
 export class SetorService extends BaseService
 {

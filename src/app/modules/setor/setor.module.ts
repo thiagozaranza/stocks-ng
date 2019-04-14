@@ -30,11 +30,13 @@ import { SetorService } from './setor.service';
 import { SetorShowComponent } from './setor-show/setor-show.component';
 import { SetorEditComponent } from './setor-edit/setor-edit.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { AlertComponent } from 'src/app/modules/layout/alert/alert.component';
 import { SetorGridComponent } from './setor-components/setor-grid/setor-grid.component';
 import { SetorFilterComponent } from './setor-components/setor-filter/setor-filter.component';
-import { DeleteConfirmComponent } from 'src/app/shared/components/crud/delete-confirm/delete-confirm.component';
+import { DeleteConfirmComponent } from 'src/app/shared/components/delete-confirm/delete-confirm.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
+import { SetorFormComponent } from './setor-components/setor-form/setor-form.component';
+import { SetorCardComponent } from './setor-components/setor-card/setor-card.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SetorCreateComponent, 
     SetorShowComponent, 
     SetorEditComponent, 
-    DeleteConfirmComponent, 
     SetorGridComponent,
-    SetorFilterComponent
+    SetorFilterComponent,
+    SetorFormComponent,
+    SetorCardComponent
   ],
   imports: [
     CommonModule,
@@ -73,7 +76,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatProgressBarModule
   ],
   entryComponents: [
-
     AlertComponent,
     DeleteConfirmComponent
   ],

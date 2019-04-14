@@ -1,0 +1,27 @@
+<form [formGroup]="elementForm" (ngSubmit)="onFormSubmit(elementForm.value)">
+  <mat-progress-bar mode="indeterminate" [class.show]="loading" [class.hide]="!loading"></mat-progress-bar> 
+  <mat-card>    
+    <mat-card-header>
+      <mat-card-title *ngIf="element.id">Editar Setor</mat-card-title>
+      <mat-card-title *ngIf="!element.id">Cadastrar Setor</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <br/>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput formControlName="nome" #formNome placeholder="Nome" [(value)]="element.nome">
+      </mat-form-field>
+      <mat-error>  
+          <span *ngIf="!elementForm.get('nome').valid && elementForm.get('nome').touched">Please enter the name!!!</span>  
+      </mat-error>    
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button color="default" (click)="cancel()" >
+          <mat-icon aria-label="Cancelar">cancel</mat-icon> Cancelar
+      </a>
+      <button mat-button color="primary" [disabled]="!elementForm.valid" style="float:right">
+        <mat-icon aria-label="Salvar" >save</mat-icon> Salvar
+      </button>
+    </mat-card-actions> 
+  </mat-card> 
+</form> 
