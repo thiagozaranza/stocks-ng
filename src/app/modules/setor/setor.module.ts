@@ -37,6 +37,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 import { SetorFormComponent } from './setor-components/setor-form/setor-form.component';
 import { SetorCardComponent } from './setor-components/setor-card/setor-card.component';
+import { ModalActionComponent } from 'src/app/shared/components/modal-action/modal-action.component';
+import { SetorModalFormComponent } from './setor-modal-form/setor-modal-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SetorCardComponent } from './setor-components/setor-card/setor-card.com
     SetorGridComponent,
     SetorFilterComponent,
     SetorFormComponent,
-    SetorCardComponent
+    SetorCardComponent,
+    SetorModalFormComponent
   ],
   imports: [
     CommonModule,
@@ -77,7 +80,8 @@ import { SetorCardComponent } from './setor-components/setor-card/setor-card.com
   ],
   entryComponents: [
     AlertComponent,
-    DeleteConfirmComponent
+    DeleteConfirmComponent,
+    ModalActionComponent
   ],
   providers: [
     SetorService

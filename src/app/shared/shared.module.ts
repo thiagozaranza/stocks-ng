@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { CreateButtonComponent } from './components/create-button/create-button.component';
 import { ModuleNavigationComponent } from './components/module-navigation/module-navigation.component';
 import { IndexButtonComponent } from './components/index-button/index-button.component';
+import { ModalEditButtonComponent } from './components/modal-edit-button/modal-edit-button.component';
+import { ModalActionComponent } from './components/modal-action/modal-action.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { IndexButtonComponent } from './components/index-button/index-button.com
         ShowButtonComponent,
         CreateButtonComponent,
         ModuleNavigationComponent,
-        IndexButtonComponent
+        IndexButtonComponent,
+        ModalEditButtonComponent,
+        ModalActionComponent
     ],
     imports: [
         CommonModule,
@@ -40,7 +44,8 @@ import { IndexButtonComponent } from './components/index-button/index-button.com
         EditButtonComponent,
         ShowButtonComponent,
         CreateButtonComponent,
-        ModuleNavigationComponent
+        ModuleNavigationComponent,
+        ModalEditButtonComponent
     ]
 })
 export class SharedModule { }
