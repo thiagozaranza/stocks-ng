@@ -13,6 +13,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { PagesModule } from './modules/pages/pages.module';
 import { AtivoModule } from './modules/ativo/ativo.module';
 import { SetorModule } from './modules/setor/setor.module';
+import { SetorFormComponent } from './modules/setor/setor-components/setor-form/setor-form.component';
+import { ModalActionComponent } from './shared/components/modal-action/modal-action.component';
+import { SetorCardComponent } from './modules/setor/setor-components/setor-card/setor-card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -60,6 +63,10 @@ export function tokenGetter() {
   ],
   bootstrap: [
     AppComponent
+  ], 
+  entryComponents: [
+    SetorFormComponent,
+    SetorCardComponent
   ]
 })
 export class AppModule { }

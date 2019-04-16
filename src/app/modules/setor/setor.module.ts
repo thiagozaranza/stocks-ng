@@ -38,7 +38,7 @@ import { AlertComponent } from 'src/app/shared/components/alert/alert.component'
 import { SetorFormComponent } from './setor-components/setor-form/setor-form.component';
 import { SetorCardComponent } from './setor-components/setor-card/setor-card.component';
 import { ModalActionComponent } from 'src/app/shared/components/modal-action/modal-action.component';
-import { SetorModalFormComponent } from './setor-modal-form/setor-modal-form.component';
+import { SetorModalFormComponent } from './setor-components/setor-modal-form/setor-modal-form.component';
 
 @NgModule({
   declarations: [

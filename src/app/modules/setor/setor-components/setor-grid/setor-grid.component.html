@@ -16,7 +16,7 @@
     <th mat-header-cell *matHeaderCellDef width="220"> Ações </th>
     <td mat-cell *matCellDef="let element">
       <div class="button-row">
-        <app-modal-edit-button  [service]="service" [element]="element"></app-modal-edit-button>
+        <app-modal-edit-button  [content]="form" [element]="element"></app-modal-edit-button>
         <app-show-button        [service]="service" [element]="element"></app-show-button>
         <app-edit-button        [service]="service" [element]="element"></app-edit-button>
         <app-delete-button      [service]="service" [element]="element"></app-delete-button>

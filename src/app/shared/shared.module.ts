@@ -12,6 +12,7 @@ import { ModuleNavigationComponent } from './components/module-navigation/module
 import { IndexButtonComponent } from './components/index-button/index-button.component';
 import { ModalEditButtonComponent } from './components/modal-edit-button/modal-edit-button.component';
 import { ModalActionComponent } from './components/modal-action/modal-action.component';
+import { ModalHolderDirective } from './directives/modal-holder.directive';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { ModalActionComponent } from './components/modal-action/modal-action.com
         ModuleNavigationComponent,
         IndexButtonComponent,
         ModalEditButtonComponent,
-        ModalActionComponent
+        ModalActionComponent,
+        ModalHolderDirective
     ],
     imports: [
         CommonModule,
