@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { BaseService } from 'src/app/shared/services/base.service';
 import { ButtonType } from 'src/app/shared/global';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-create-button',
@@ -13,8 +14,14 @@ export class CreateButtonComponent {
     @Input() type: ButtonType = ButtonType.Default;
     @Input() showText: boolean = false;
 
+    constructor(protected dialog: MatDialog)
+    {
+
+    }
+
     show(): void
     {
+        this.dialog.closeAll();
         this.service.create();
     }
 

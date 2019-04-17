@@ -38,53 +38,55 @@ import { AlertComponent } from 'src/app/shared/components/alert/alert.component'
 import { SetorFormComponent } from './setor-components/setor-form/setor-form.component';
 import { SetorCardComponent } from './setor-components/setor-card/setor-card.component';
 import { ModalActionComponent } from 'src/app/shared/components/modal-action/modal-action.component';
-import { SetorModalFormComponent } from './setor-components/setor-modal-form/setor-modal-form.component';
 
 @NgModule({
-  declarations: [
-    SetorIndexComponent, 
-    SetorCreateComponent, 
-    SetorShowComponent, 
-    SetorEditComponent, 
-    SetorGridComponent,
-    SetorFilterComponent,
-    SetorFormComponent,
-    SetorCardComponent,
-    SetorModalFormComponent
-  ],
-  imports: [
-    CommonModule,
-    LayoutModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule, 
-    MatIconModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatGridListModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    MatSlideToggleModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSelectModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatCardModule,
-    MatProgressBarModule
-  ],
-  entryComponents: [
-    AlertComponent,
-    DeleteConfirmComponent,
-    ModalActionComponent
-  ],
-  providers: [
-    SetorService
-  ]
+    declarations: [
+        SetorIndexComponent, 
+        SetorCreateComponent, 
+        SetorShowComponent, 
+        SetorEditComponent, 
+        SetorGridComponent,
+        SetorFilterComponent,
+        SetorFormComponent,
+        SetorCardComponent
+    ],
+    imports: [
+        CommonModule,
+        LayoutModule,
+        SharedModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatButtonModule, 
+        MatIconModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatGridListModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatSlideToggleModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSelectModule,
+        MatChipsModule,
+        MatDialogModule,
+        MatDividerModule,
+        MatCardModule,
+        MatProgressBarModule
+    ],
+    entryComponents: [
+        AlertComponent,
+        DeleteConfirmComponent,
+        ModalActionComponent
+    ],
+    providers: [
+        SetorService
+    ],
+    exports: [
+        SetorCardComponent
+    ]
+
 })
 export class SetorModule { }

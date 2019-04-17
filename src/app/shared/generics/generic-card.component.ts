@@ -19,6 +19,11 @@ export class GenericCardComponent
     {
         this.id = Number(this.route.snapshot.paramMap.get("id"));
         this.pick(this.id);
+
+        this.service.savedElementListener$.subscribe((response) => {
+            console.log('this.service.savedElementListener')
+            this.pick(response.data.id);
+        })
     }
 
     pick(id:number) 

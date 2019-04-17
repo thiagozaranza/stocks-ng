@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
-import { MatIconModule, MatButtonModule, MatDialogModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatDialogModule, MatToolbarModule, MatCardModule, MatDividerModule } from '@angular/material';
 import { EditButtonComponent } from './components/edit-button/edit-button.component';
 import { ShowButtonComponent } from './components/show-button/show-button.component';
 import { DeleteConfirmComponent } from './components/delete-confirm/delete-confirm.component';
@@ -33,13 +33,15 @@ import { ModalHolderDirective } from './directives/modal-holder.directive';
         MatIconModule,
         MatButtonModule,
         MatDialogModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MatCardModule,
+        MatDividerModule
     ],
     entryComponents: [
 
     ],
     providers: [
-
+        
     ],
     exports: [
         DeleteButtonComponent,

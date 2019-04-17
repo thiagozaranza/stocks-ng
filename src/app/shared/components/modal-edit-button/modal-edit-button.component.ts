@@ -12,7 +12,6 @@ import { ModalActionComponent } from '../modal-action/modal-action.component';
 
 export class ModalEditButtonComponent implements OnInit 
 {
-
     @Input() element: any;
     @Input() content: ComponentType<any>;
     @Input() type: ButtonType = ButtonType.Default;
@@ -23,13 +22,14 @@ export class ModalEditButtonComponent implements OnInit
 
     }
 
-    ngOnInit() {
+    ngOnInit() 
+    {
         
     }
 
     edit()
     {
-        this.dialog.open(ModalActionComponent, {
+        let dialogRef = this.dialog.open(ModalActionComponent, {
             width: '800px',
             minWidth: '600px',
             data: {                
@@ -38,5 +38,4 @@ export class ModalEditButtonComponent implements OnInit
             }
         });
     }
-
 }

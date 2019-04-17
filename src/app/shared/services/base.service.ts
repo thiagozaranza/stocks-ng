@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { isArray, isString } from 'util';
 import { Router } from '@angular/router';
 import { AlertComponent } from '../components/alert/alert.component';
+import { MatDialog } from '@angular/material';
+import { ModalActionComponent } from '../components/modal-action/modal-action.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +17,21 @@ export class BaseService
     protected urn = '';
     protected resource = '';
 
-    private callComponent = new Subject<any>();
-    public callComponent$ = this.callComponent.asObservable();
+    public element: any;
+
+    public formTemplate: any;
+    public cardTemplate: any;
+
+    public savedElementListener  = new Subject<any>();
+    public savedElementListener$ = this.savedElementListener.asObservable();
+
     public _limit;
     public _page: number;
     public _filters: object = {};
     public _with;
     public _orderBy: string;
 
-    constructor(private router: Router, protected http: HttpClient, protected globalApp: GlobalApp) { 
+    constructor(private router: Router, private http: HttpClient, private dialog:MatDialog, private globalApp: GlobalApp) { 
         
     }
 
@@ -175,9 +183,19 @@ export class BaseService
         this.router.navigate(['/' + this.resource + '/create']);       
     }
 
-    public edit(id: number): void
+    public edit(element): void
     {
-        this.router.navigate(['/' + this.resource + '/' + id + '/edit']);       
+        if (this.dialog.openDialogs.length > 0) {
+            let modal = this.dialog.open(ModalActionComponent, {
+                width: '800px',
+                minWidth: '600px',
+                data: {                
+                    content: this.formTemplate,
+                    element: element
+                }
+            });
+        } else 
+            this.router.navigate(['/' + this.resource + '/' + element.id + '/edit']);       
     }
 
     public show(id: number): void

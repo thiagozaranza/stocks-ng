@@ -15,9 +15,6 @@ export class GenericFormComponent
     public loading: boolean = false;
     protected dialog: MatDialog;
 
-    private saveButtonListener  = new Subject<any>();
-    public  saveButtonListener$ = this.saveButtonListener.asObservable();
-
     private cancelButtonListener  = new Subject<any>();
     public  cancelButtonListener$ = this.cancelButtonListener.asObservable();
 
@@ -27,7 +24,11 @@ export class GenericFormComponent
 
         this.service.save(this.element.id, form, (response) => {
             this.loading = false;
-            this.saveButtonListener.next(response);
+
+            if (this.dialog.openDialogs.length > 0)
+                this.dialog.openDialogs.pop().close();
+
+            this.service.savedElementListener.next(response);
         }, (error) => {
             this.loading = false;
             this.service.alert(this.dialog, error);
@@ -36,6 +37,9 @@ export class GenericFormComponent
 
     cancel()
     {
+        if (this.dialog.openDialogs.length > 0)
+            this.dialog.openDialogs.pop().close();
+
         this.cancelButtonListener.next();
     }
 }

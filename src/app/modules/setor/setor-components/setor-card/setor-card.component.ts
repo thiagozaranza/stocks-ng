@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SetorService } from '../../setor.service';
 import { MatDialog } from '@angular/material';
 import { GenericCardComponent } from 'src/app/shared/generics/generic-card.component';
+import { SetorFormComponent } from '../setor-form/setor-form.component';
 
 @Component({
     selector: 'app-setor-card',
@@ -11,7 +12,9 @@ import { GenericCardComponent } from 'src/app/shared/generics/generic-card.compo
 export class SetorCardComponent extends GenericCardComponent {
 
     constructor(public service: SetorService, protected dialog: MatDialog) { 
-        super()
+        super();
+        this.service.formTemplate = SetorFormComponent;
+        this.service.cardTemplate = SetorCardComponent;
     }
 
     ngOnInit() {

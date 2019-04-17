@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BaseService } from 'src/app/shared/services/base.service';
 import { ButtonType } from 'src/app/shared/global';
+import { MatDialog } from '@angular/material';
 
 @Component({
     selector: 'app-edit-button',
@@ -16,12 +17,17 @@ export class EditButtonComponent implements OnInit {
 
     protected text: string;
 
+    constructor(protected dialog: MatDialog)
+    {
+
+    }
+
     ngOnInit(): void {
         this.text = (this.showText)? ' Editar' : '';
     }
     
     edit(): void
     {
-        this.service.edit(this.element.id);
+        this.service.edit(this.element);
     }
 }

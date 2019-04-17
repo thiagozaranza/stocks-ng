@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ComponentFactoryResolver, ViewContainerRef, ViewChild, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Inject, ComponentFactoryResolver, ViewChild, Input } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalHolderDirective } from '../../directives/modal-holder.directive';
 import { ModalHolderInterface } from '../../interfaces/modal-holder.interface';
 
@@ -14,8 +14,9 @@ export class ModalActionComponent implements OnInit
 
     @Input() content: any;
 
-    constructor(
-        public dialogRef: MatDialogRef<ModalActionComponent>, 
+    public componentFactored: any
+
+    constructor(        
         @Inject(MAT_DIALOG_DATA) public data,
         private componentFactoryResolver: ComponentFactoryResolver,
     ) { 
@@ -28,12 +29,12 @@ export class ModalActionComponent implements OnInit
 
     loadComponent() 
     {
-        let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.data.content);
+        this.componentFactored = this.componentFactoryResolver.resolveComponentFactory(this.data.content);
 
         let viewContainerRef = this.modalHolder.viewContainerRef;
         viewContainerRef.clear();
 
-        let componentRef = viewContainerRef.createComponent(componentFactory);
+        let componentRef = viewContainerRef.createComponent(this.componentFactored);
         (<ModalHolderInterface>componentRef.instance).element = this.data.element;
     }
 }
