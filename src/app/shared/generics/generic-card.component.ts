@@ -2,12 +2,12 @@ import { BaseService } from '../services/base.service';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { AlertComponent } from '../components/alert/alert.component';
-import { Input } from '@angular/core';
+import { Input, OnInit, HostBinding } from '@angular/core';
 
-export class GenericCardComponent
+export class GenericCardComponent implements OnInit
 {
     @Input() element: any;
-
+    
     public loading: boolean = false;
 
     protected service: BaseService;
@@ -20,10 +20,14 @@ export class GenericCardComponent
         this.id = Number(this.route.snapshot.paramMap.get("id"));
         this.pick(this.id);
 
-        this.service.savedElementListener$.subscribe((response) => {
-            console.log('this.service.savedElementListener')
-            this.pick(response.data.id);
-        })
+        this.service.change.subscribe(element => {
+            this.element = element;
+            this.pick(element.id)
+        });
+
+        // this.service.eventPick.subscribe((element) => {
+        //     this.pick(element.id);
+        // });
     }
 
     pick(id:number) 

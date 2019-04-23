@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Input, HostListener } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material';
@@ -18,6 +18,7 @@ export class GenericFormComponent
     private cancelButtonListener  = new Subject<any>();
     public  cancelButtonListener$ = this.cancelButtonListener.asObservable();
 
+    @HostListener('onFormSubmit')
     onFormSubmit(form:NgForm)  
     {  
         this.loading = true;
@@ -28,7 +29,8 @@ export class GenericFormComponent
             if (this.dialog.openDialogs.length > 0)
                 this.dialog.openDialogs.pop().close();
 
-            this.service.savedElementListener.next(response);
+            this.service.changed(response.data);
+
         }, (error) => {
             this.loading = false;
             this.service.alert(this.dialog, error);

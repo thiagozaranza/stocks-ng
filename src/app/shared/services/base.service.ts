@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { GlobalApp } from '../global';
 import { Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter, HostBinding } from '@angular/core';
 import { isArray, isString } from 'util';
 import { Router } from '@angular/router';
 import { AlertComponent } from '../components/alert/alert.component';
@@ -14,16 +14,15 @@ import { ModalActionComponent } from '../components/modal-action/modal-action.co
 
 export class BaseService 
 {
-    protected urn = '';
-    protected resource = '';
+    @Output() change: EventEmitter<boolean> = new EventEmitter();
 
     public element: any;
 
+    protected urn = '';
+    protected resource = '';
+
     public formTemplate: any;
     public cardTemplate: any;
-
-    public savedElementListener  = new Subject<any>();
-    public savedElementListener$ = this.savedElementListener.asObservable();
 
     public _limit;
     public _page: number;
@@ -153,6 +152,13 @@ export class BaseService
     public pick(id: number, callback, errorHandler): void
     {
         this.http.get(this.globalApp.base_url + this.urn + '/' + id).subscribe(callback, errorHandler);
+    }
+
+    public changed(element: any)
+    {
+        console.log('BaseService changed(element)');
+
+        this.change.emit(element);
     }
 
     public destroy(id: number, callback, errorHandler): void

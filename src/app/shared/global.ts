@@ -1,6 +1,6 @@
 export class GlobalApp 
 {
-    public base_url = 'http://localhost:8080/';
+    public base_url = 'http://localhost:8099/';
     public client_id = 2;
     public client_secret = "tKwntsy5g7tYYQt7uvPb6LJu8eSm365bJG5Is6HP";
 }

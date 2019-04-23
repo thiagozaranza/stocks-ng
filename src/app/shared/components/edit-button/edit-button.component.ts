@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { BaseService } from 'src/app/shared/services/base.service';
 import { ButtonType } from 'src/app/shared/global';
 import { MatDialog } from '@angular/material';

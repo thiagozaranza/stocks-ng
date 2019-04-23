@@ -11,9 +11,9 @@ export class GenericCreateComponent
 
     ngOnInit(): void 
     {
-        this.form.saveButtonListener$.subscribe((response) => {
-            this.service.show(response.data.id);
-        });
+        // this.form.saveButtonListener$.subscribe((response) => {
+        //     this.service.show(response.data.id);
+        // });
 
         this.form.cancelButtonListener$.subscribe(() => {
             this.service.index();

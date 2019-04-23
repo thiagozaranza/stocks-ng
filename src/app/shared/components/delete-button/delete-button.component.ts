@@ -24,7 +24,7 @@ export class DeleteButtonComponent implements OnInit{
 
     constructor(protected dialog: MatDialog) 
     {
-        
+
     }
 
     ngOnInit(): void 
@@ -32,14 +32,7 @@ export class DeleteButtonComponent implements OnInit{
         this.text = (this.showText)? ' Deletar' : '';
     }
 
-    destroy(id: number): void
-    {
-        this.service.destroy(id, (response) => {
-            this.callDeleteButton.next(response.data);
-        }, (error) => {
-            this.alert(error);
-        });
-    }
+    
 
     alert(error): void
     {
@@ -57,8 +50,13 @@ export class DeleteButtonComponent implements OnInit{
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result === true)
-                this.destroy(this.element.id);      
+            if (result === true) {
+                this.service.destroy(this.element.id, (response) => {
+                    this.callDeleteButton.next();  
+                }, (error) => {
+
+                }); 
+            }  
         });
     }
 }
